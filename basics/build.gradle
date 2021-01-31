@@ -38,11 +38,10 @@ android {
 }
 
 dependencies {
-    implementation fileTree(dir: "libs", include: ["*.jar"])
-    implementation 'androidx.core:core-ktx:' + rootProject.ext.dependencieVersions.coreKtx
-    implementation "org.jetbrains.kotlin:kotlin-stdlib:" + rootProject.ext.dependencieVersions.kotlin_version
-    implementation 'androidx.appcompat:appcompat:'+ rootProject.ext.dependencieVersions.appcompat
-    implementation 'androidx.constraintlayout:constraintlayout:'+ rootProject.ext.dependencieVersions.constraintlayout
+    implementation project(':rxhttp')
+
+    api 'androidx.appcompat:appcompat:'+ rootProject.ext.dependencieVersions.appcompat
+    api 'androidx.constraintlayout:constraintlayout:'+ rootProject.ext.dependencieVersions.constraintlayout
 
     //Room
     api 'android.arch.persistence.room:runtime:'+ rootProject.ext.dependencieVersions.room

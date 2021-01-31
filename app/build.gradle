@@ -263,14 +263,4 @@ repositories {
 dependencies {
     implementation project(path: ':basics')
     implementation project(':ui')
-    implementation project(':rxhttp')
-
-    implementation fileTree(dir: "libs", include: ["*.jar"])
-    implementation 'androidx.core:core-ktx:' + rootProject.ext.dependencieVersions.coreKtx
-    implementation "org.jetbrains.kotlin:kotlin-stdlib:" + rootProject.ext.dependencieVersions.kotlin_version
-    implementation 'androidx.appcompat:appcompat:'+ rootProject.ext.dependencieVersions.appcompat
-    implementation 'androidx.constraintlayout:constraintlayout:'+ rootProject.ext.dependencieVersions.constraintlayout
-    testImplementation 'junit:junit:'+ rootProject.ext.dependencieVersions.junit
-    androidTestImplementation 'androidx.test.ext:junit:'+ rootProject.ext.dependencieVersions.junitTest
-    androidTestImplementation 'androidx.test.espresso:espresso-core:'+ rootProject.ext.dependencieVersions.espressoCore
 }
