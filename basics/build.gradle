@@ -1,0 +1,59 @@
+apply plugin: 'com.android.library'
+//apply plugin: 'com.android.application'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
+
+android {
+    compileSdkVersion rootProject.ext.android.compileSdkVersion
+    buildToolsVersion rootProject.ext.android.buildToolsVersion
+
+    defaultConfig {
+        minSdkVersion rootProject.ext.android.minSdkVersion
+        targetSdkVersion rootProject.ext.android.targetSdkVersion
+//        applicationId "com.careershe.basics"
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+
+        multiDexEnabled true
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+    //dataBinding
+    dataBinding {
+        enabled = true
+    }
+}
+
+dependencies {
+    implementation fileTree(dir: "libs", include: ["*.jar"])
+    implementation 'androidx.core:core-ktx:' + rootProject.ext.dependencieVersions.coreKtx
+    implementation "org.jetbrains.kotlin:kotlin-stdlib:" + rootProject.ext.dependencieVersions.kotlin_version
+    implementation 'androidx.appcompat:appcompat:'+ rootProject.ext.dependencieVersions.appcompat
+    implementation 'androidx.constraintlayout:constraintlayout:'+ rootProject.ext.dependencieVersions.constraintlayout
+
+    //Room
+    api 'android.arch.persistence.room:runtime:'+ rootProject.ext.dependencieVersions.room
+    annotationProcessor "android.arch.persistence.room:compiler:"+ rootProject.ext.dependencieVersions.room
+    //lifecycle
+    api 'androidx.lifecycle:lifecycle-extensions:'+ rootProject.ext.dependencieVersions.lifecycle
+    api "android.arch.lifecycle:common-java8:1.1.1"
+    //多个dex分包-Androidx版
+    api 'androidx.multidex:multidex:'+ rootProject.ext.dependencieVersions.multidex
+
+    //加载图片
+    api 'com.github.bumptech.glide:glide:'+ rootProject.ext.dependencieVersions.glide
+
+}

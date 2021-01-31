@@ -1,0 +1,9 @@
+include ':basics'//include ':basics'
+include ':ui'
+include ':app'
+rootProject.name = "Careershe"
+
+
+static getApplyPlugins() {
+
+}

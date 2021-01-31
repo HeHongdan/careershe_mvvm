@@ -1,0 +1,64 @@
+apply plugin: 'com.android.library'
+//apply plugin: 'com.android.application'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
+
+android {
+    compileSdkVersion rootProject.ext.android.compileSdkVersion
+    buildToolsVersion rootProject.ext.android.buildToolsVersion
+
+    defaultConfig {
+        minSdkVersion rootProject.ext.android.minSdkVersion
+        targetSdkVersion rootProject.ext.android.targetSdkVersion
+//        applicationId "com.careershe.ui"
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    flavorDimensions "default"
+    productFlavors {
+        debugApk {
+            buildConfigField "String", "LIBRARY_URL", '"www.debug.com"'
+        }
+        careersheApk {
+            buildConfigField "String", "LIBRARY_URL", '"www.careershe.com"'
+        }
+
+        emuiApk {
+            buildConfigField "String", "LIBRARY_URL", '"www.huawei.com"'
+        }
+
+        miuiApk {
+            buildConfigField "String", "LIBRARY_URL", '"www.mi.com"'
+        }
+
+        oppoApk {
+            buildConfigField "String", "LIBRARY_URL", '"www.oppo.com"'
+        }
+
+        vivoApk {
+            buildConfigField "String", "LIBRARY_URL", '"www.vivo.com"'
+        }
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+
+}
+
+dependencies {
+    implementation fileTree(dir: "libs", include: ["*.jar"])
+    implementation 'androidx.core:core-ktx:' + rootProject.ext.dependencieVersions.coreKtx
+    implementation "org.jetbrains.kotlin:kotlin-stdlib:" + rootProject.ext.dependencieVersions.kotlin_version
+//    implementation 'androidx.appcompat:appcompat:1.2.0'
+//    testImplementation 'junit:junit:4.12'
+//    androidTestImplementation 'androidx.test.ext:junit:1.1.2'
+//    androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
+
+}

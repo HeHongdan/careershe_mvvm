@@ -1,0 +1,275 @@
+apply plugin: 'com.android.application'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
+
+/** 打包时的时间戳。https://blog.xujiaji.com/post/android-project-one-for-more */
+static def releaseTime() {
+    return new Date().format("yyyyMMddHHmm", TimeZone.getTimeZone("GMT+8")).toString().trim()
+}
+
+/** 获取并格式化时间，与android{}同一层级 */
+static def buildTime() {
+    def formattedDate = new Date().format('yyyyMMdd', TimeZone.getTimeZone("GMT+8")).toString().trim()
+    //println("美易来，构建时间=" + formattedDate)
+    return Integer.parseInt(formattedDate)
+}
+
+/** 获取并格式化日期，与android{}同一层级 */
+static def buildDate() {
+    return new Date().format("MMddHHmm", TimeZone.getTimeZone("GMT+8")).toString().trim()
+}
+
+
+android {
+    compileSdkVersion rootProject.ext.android.compileSdkVersion
+    buildToolsVersion rootProject.ext.android.buildToolsVersion
+    
+    defaultConfig {
+        applicationId "com.careershe.careershe"
+        versionCode rootProject.ext.android.versionCode
+        versionName rootProject.ext.android.versionName
+        minSdkVersion rootProject.ext.android.minSdkVersion
+        targetSdkVersion rootProject.ext.android.targetSdkVersion
+        println("[千职鹤]编译版本号= " + compileSdkVersion)
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+
+        //写入编译时常量
+        buildConfigField "String", "QQ_ID", '"默认值"' // qq appId
+        buildConfigField "String", "LOGOURL", '"https://ss1.bdstatic.com/70cFuXSh_Q1YnxGkpoWK1HF6hhy/it/u=2374702328,3613689769&fm=27&gp=0.jpg"'
+        buildConfigField "String", "SINA_ID", '"xxxxxx"' // 新浪appId
+        buildConfigField "String", "UM_ID", '"xxxxxx"' // 友盟
+        buildConfigField "String", "WX_SECRET", '"xxxxxx"' // 微信 secret
+        buildConfigField "String", "SINA_REDIRECT", '"http://open.weibo.com/apps/xxxxxx/privilege/oauth"'// 新浪
+        buildConfigField "String", "ADHUB_INIT_ID", '"xxxxxx"' // 广告sdk初始化id
+        buildConfigField "String", "ADHUB_SPLASH_ID", '"xxxxxx"' // 开屏广告id
+        buildConfigField "String", "ADHUB_BANNER_ID", '"xxxxxx"' // banner广告id
+        buildConfigField "String", "SERVER_URL", '"http://xxx.xxx.com/"'
+        buildConfigField "String", "LOGO_URL", '"http://file.xxx.com/img/xxx.png"'
+        manifestPlaceholders = [UMENG_CHANNEL_VALUE: 'careershe']//填写AndroidManifest里的占位符
+        manifestPlaceholders = [
+                qq_id        : '"默认值"',
+                JPUSH_PKGNAME: '"默认值"',
+                JPUSH_APPKEY : applicationId, //JPush 上注册的包名对应的 Appkey.
+                JPUSH_CHANNEL: "developer-default", //暂时填写默认值即可.
+        ]
+
+        //多个Dex
+        multiDexEnabled true
+        // config the JSON processing library
+        javaCompileOptions {
+            annotationProcessorOptions {
+                arguments = [serializer: "gson"]
+            }
+        }
+
+        ndk {
+            abiFilters "armeabi-v7a"
+        }
+        //指定生成的字节码版本。我们建议你设置这个值为能够提供你正在使用的所有功能的最低API级别
+        renderscriptTargetApi 25
+        renderscriptSupportModeEnabled true
+    }
+
+    /** 发布、调试版配置。 */
+    buildTypes {
+        release {
+            // 不显示Log
+            buildConfigField "boolean", "LOG_DEBUG", "false"
+            signingConfig null
+            minifyEnabled true
+            zipAlignEnabled true
+            // 移除无用的resource文件
+            shrinkResources true
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+
+        debug {
+            // 显示Log
+            buildConfigField "boolean", "LOG_DEBUG", "true"
+            signingConfig null
+            minifyEnabled false
+            zipAlignEnabled false
+            shrinkResources false
+        }
+    }
+
+    /** 不同包名不同签名。 */
+    signingConfigs {
+        File signPropertiesFile = file("${rootDir.path}/key/keystore.properties")
+        if (!signPropertiesFile.exists()) return
+        Properties properties = new Properties()
+        properties.load(new FileInputStream(signPropertiesFile))
+        //println("[千职鹤]项目名称= ${project.toString()}；读取签名配置文件= " + properties)
+
+        careersheRelease {
+            project.android {
+                storeFile new File(signPropertiesFile.getParent(), properties['keystore'])
+                storePassword properties['storePassword']
+                keyAlias properties['keyAlias']
+                keyPassword properties['keyPassword']
+                //storeType //签名证书类型
+                println("[千职鹤]项目名称= ${project.toString()}；签名文件= " + storeFile + "；" + storePassword + "，" + keyAlias + "，" + keyPassword
+                )
+            }
+        }
+
+        testRelease {
+            storeFile new File(signPropertiesFile.getParent(), properties['keystoreDebug'])
+            storePassword properties['storePasswordDebug']
+            keyAlias properties['keyAliasDebug']
+            keyPassword properties['keyPasswordDebug']
+        }
+    }
+
+    /** 多渠道打包(productFlavors一起使用)。 */
+    flavorDimensions "default"
+    /** 多渠道打包。 */
+    productFlavors {
+        debugApk {
+            applicationId = "com.careershe.careershe.debug"
+            versionCode = buildTime()
+            versionName defaultConfig.versionName +"."+ buildDate()
+            signingConfig signingConfigs.testRelease
+
+            println("[千职鹤]调试版本= " + applicationId+";" + versionCode+";" + versionName+";" +signingConfig)
+            buildConfigField "String", "QQ_ID", '"584022220"' // qq appId
+            buildConfigField "String", "WX_ID", '"debugApkWXId"' // 微信 appId
+        }
+
+        careersheApk {
+            applicationId defaultConfig.applicationId
+            versionCode defaultConfig.versionCode
+            versionName defaultConfig.versionName
+            signingConfig signingConfigs.careersheRelease
+
+            String qq_id = '"careersheApk"'
+            buildConfigField "String", "QQ_ID", qq_id // qq appId
+            buildConfigField "String", "WX_ID", '"careersheApkWX"' // 微信 appId
+            buildConfigField "String", "LOGOURL", '"https://ss0.bdstatic.com/70cFuHSh_Q1YnxGkpoWK1HF6hhy/it/u=2072087045,227865347&fm=27&gp=0.jpg"'
+        }
+
+        emuiApk {
+            applicationId defaultConfig.applicationId
+            versionCode defaultConfig.versionCode
+            versionName defaultConfig.versionName
+            signingConfig signingConfigs.careersheRelease
+
+            String qq_id = '"emuiApk"'
+
+            buildConfigField "String", "QQ_ID", qq_id // qq appId
+            buildConfigField "String", "WX_ID", '"three--abcdefghijklmnopqrst"' // 微信 appId
+            buildConfigField "String", "LOGOURL", '"https://ss0.bdstatic.com/70cFuHSh_Q1YnxGkpoWK1HF6hhy/it/u=3117066670,3759738700&fm=27&gp=0.jpg"'
+        }
+
+        miuiApk {
+            applicationId defaultConfig.applicationId
+            versionCode defaultConfig.versionCode
+            versionName defaultConfig.versionName
+            signingConfig signingConfigs.careersheRelease
+
+            String qq_id = '"emuiApk"'
+            buildConfigField "String", "QQ_ID", qq_id // qq appId
+            buildConfigField "String", "WX_ID", '"miuiApkWXId"' // 微信 appId
+            buildConfigField "String", "LOGOURL", '"https://ss0.bdstatic.com/70cFuHSh_Q1YnxGkpoWK1HF6hhy/it/u=3117066670,3759738700&fm=27&gp=0.jpg"'
+        }
+
+        oppoApk {
+            applicationId defaultConfig.applicationId
+            versionCode defaultConfig.versionCode
+            versionName defaultConfig.versionName
+            signingConfig signingConfigs.careersheRelease
+
+            String qq_id = '"oppoApk"'
+            buildConfigField "String", "QQ_ID", qq_id // qq appId
+            buildConfigField "String", "WX_ID", '"oppoApkWXId"' // 微信 appId
+            buildConfigField "String", "LOGOURL", '"https://ss0.bdstatic.com/70cFuHSh_Q1YnxGkpoWK1HF6hhy/it/u=3117066670,3759738700&fm=27&gp=0.jpg"'
+        }
+
+        oppoApk {
+            applicationId defaultConfig.applicationId
+            versionCode defaultConfig.versionCode
+            versionName defaultConfig.versionName
+            signingConfig signingConfigs.careersheRelease
+
+            String qq_id = '"vivoApk"'
+            buildConfigField "String", "QQ_ID", qq_id // qq appId
+            buildConfigField "String", "WX_ID", '"oppoApkWXId"' // 微信 appId
+            buildConfigField "String", "LOGOURL", '"https://ss0.bdstatic.com/70cFuHSh_Q1YnxGkpoWK1HF6hhy/it/u=3117066670,3759738700&fm=27&gp=0.jpg"'
+        }
+
+    }
+
+    /** apk文件名配置。 */
+    applicationVariants.all {
+        variant ->
+            variant.outputs.all {
+                def chineseName = "千职鹤"
+                switch (variant.productFlavors[0].name) {
+                    case "emuiApk":
+                        chineseName = "华为"
+                        break
+                    case "miuiApk":
+                        chineseName = "小米"
+                        break
+                    case "oppoApk":
+                        chineseName = "OPPO"
+                        break
+                    case "vivoApk":
+                        chineseName = "VIVO"
+                        break
+                }
+                //${variant.productFlavors[0].name}当前渠道名
+                //${variant.productFlavors[0].versionName}当前版本名
+                //${releaseTime()}当前时间
+                outputFileName = "${chineseName}-${variant.productFlavors[0].name}-v${variant.productFlavors[0].versionName}-${releaseTime()}.apk"
+
+                //println("[千职鹤]打包文件= " + outputFileName)
+            }
+    }
+
+    /** 去除 Jar 包中 XXX.txt。 */
+    packagingOptions {
+        exclude 'META-INF/DEPENDENCIES.txt'
+        exclude 'META-INF/LICENSE.txt'
+        exclude 'META-INF/NOTICE.txt'
+        exclude 'META-INF/NOTICE'
+        exclude 'META-INF/LICENSE'
+        exclude 'META-INF/DEPENDENCIES'
+        exclude 'META-INF/notice.txt'
+        exclude 'META-INF/license.txt'
+        exclude 'META-INF/dependencies.txt'
+        exclude 'META-INF/LGPL2.1'
+    }
+
+    compileOptions {
+        targetCompatibility JavaVersion.VERSION_1_8
+        sourceCompatibility JavaVersion.VERSION_1_8
+    }
+
+    dexOptions {
+        //此处可根据电脑本身配置 数值越大 当然越快
+        javaMaxHeapSize "4g"
+        preDexLibraries = false
+    }
+
+}
+
+repositories {
+    flatDir {
+        dirs 'libs', '../adpoymer/libs'
+    }
+}
+
+dependencies {
+    implementation project(path: ':basics')
+    implementation project(':ui')
+
+    implementation fileTree(dir: "libs", include: ["*.jar"])
+    implementation 'androidx.core:core-ktx:' + rootProject.ext.dependencieVersions.coreKtx
+    implementation "org.jetbrains.kotlin:kotlin-stdlib:" + rootProject.ext.dependencieVersions.kotlin_version
+    implementation 'androidx.appcompat:appcompat:'+ rootProject.ext.dependencieVersions.appcompat
+    implementation 'androidx.constraintlayout:constraintlayout:'+ rootProject.ext.dependencieVersions.constraintlayout
+    testImplementation 'junit:junit:'+ rootProject.ext.dependencieVersions.junit
+    androidTestImplementation 'androidx.test.ext:junit:'+ rootProject.ext.dependencieVersions.junitTest
+    androidTestImplementation 'androidx.test.espresso:espresso-core:'+ rootProject.ext.dependencieVersions.espressoCore
+}

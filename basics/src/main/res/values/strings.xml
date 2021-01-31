@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">basics</string>
+
+    <string name="loading">加载中&#8230;</string>
+    <string name="load_error">网络或服务器崩溃了QAQ</string>
+    <string name="no_network">没有网络，点击重试</string>
+    <string name="no_data">没有数据</string>
+</resources>
