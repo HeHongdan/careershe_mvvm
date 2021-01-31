@@ -263,6 +263,7 @@ repositories {
 dependencies {
     implementation project(path: ':basics')
     implementation project(':ui')
+    implementation project(':rxhttp')
 
     implementation fileTree(dir: "libs", include: ["*.jar"])
     implementation 'androidx.core:core-ktx:' + rootProject.ext.dependencieVersions.coreKtx
