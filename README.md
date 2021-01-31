@@ -6,27 +6,27 @@
 [![auc][aucSvg]][auc] [![result][apiSvg]][result] [![build][buildSvg]][build] [![License][licenseSvg]][license]
 -->
 
-# 千职鹤
+# [千职鹤](https://www.careershe.com/)
 
 ## 关于千职鹤
-**[千职鹤][readme]** :fire:  是一个提供全面及准确的各种职业选择信息，帮助学生实现职业梦想的平台。把国外先进职业教育专业知识引入中国，而这些知识正是中国学生在学校里无法学到的。 :fire:
+「**[千职鹤](https://www.careershe.com/)**」 :fire:  是一个提供全面及准确的各种职业选择信息，帮助学生实现职业梦想的平台。把国外先进职业教育专业知识引入中国，而这些知识正是中国学生在学校里无法学到的。 :fire:
 
 ## 说明文档
 ### 结构说明
-<br/>app</br>
-<br/>┣━━basics：基础</br>
-<br/>┃&nbsp&nbsp&nbsp&nbsp┗━━rxhttp：http请求</br>
-<br/>┃&nbsp         ┗━━common：公共包，如：工具、常量、配置等</br>
+<br>app
+<br>┣━━basics：基础
+<br>┃&nbsp;&nbsp;&nbsp;&nbsp;┗━━rxhttp：http请求
+<br>┃&nbsp;&nbsp;&nbsp;&nbsp;┗━━common：公共包，如：工具、常量、配置等
 <br>┃
-<br/>┗━━ui：ui资源</br>
-<br/>     (&nbsp;)┗━━common：公共包，如：工具、常量、配置等</br>
+<br>┗━━ui：ui资源
+<br>&nbsp;&nbsp;&nbsp;&nbsp;┗━━common：公共包，如：工具、常量、配置等
 
-<br/>如果它对你帮助很大，并且你很想支持库的后续开发和维护，我将不胜感激 :-)</br>
+<br>如果它对你帮助很大，并且你很想支持库的后续开发和维护，我将不胜感激 :-)
 ### 其他说明
 [comment]: <> (* [README of English][utilcode])
 [//]: <> (![donate][donate])
 
-## Contact
+[//]: # (## Contact)
 [//]: # ([![Blog][blogSvg]][blog] [![jianshu][jianshuSvg]][jianshu] [![weibo][weiboSvg]][weibo] [![QQGroup][qqgroupSvg]][qqgroup])
 
 ## 打个小广告
