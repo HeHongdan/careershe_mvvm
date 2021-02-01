@@ -11,13 +11,13 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.blankj.utilcode.util.LogUtils;
 import com.bumptech.glide.Glide;
-import com.careershe.rxhttp.deprecatedhttp.data.HttpBaseResponse;
-import com.careershe.rxhttp.deprecatedhttp.data.HttpDisposable;
-import com.careershe.rxhttp.deprecatedhttp.request.HttpFactory;
-import com.careershe.rxhttp.deprecatedhttp.request.HttpRequest;
-import com.careershe.rxhttp.deprecatedhttp.request.ImageBean;
-import com.careershe.rxhttp.deprecatedhttp.request.ServerAddress;
-import com.careershe.rxhttp.deprecatedhttp.tool.HttpException;
+import com.careershe.deprecatedhttp.data.HttpBaseResponse;
+import com.careershe.deprecatedhttp.data.HttpDisposable;
+import com.careershe.deprecatedhttp.request.HttpFactory;
+import com.careershe.deprecatedhttp.request.HttpRequest;
+import com.careershe.deprecatedhttp.request.ImageBean;
+import com.careershe.deprecatedhttp.request.ServerAddress;
+import com.careershe.deprecatedhttp.tool.HttpException;
 
 public class ProductFlavorsActivity extends AppCompatActivity {
 
