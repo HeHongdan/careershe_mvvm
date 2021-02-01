@@ -66,4 +66,8 @@ dependencies {
 //    androidTestImplementation 'androidx.test.ext:junit:1.1.2'
 //    androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
 
+    /** 浮窗用到 */
+    api 'com.blankj:swipe-panel:1.2'
+    api 'androidx.recyclerview:recyclerview:1.1.0'
+
 }

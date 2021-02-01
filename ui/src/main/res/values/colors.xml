@@ -3,4 +3,25 @@
     <color name="colorPrimary">#6200EE</color>
     <color name="colorPrimaryDark">#3700B3</color>
     <color name="colorAccent">#03DAC5</color>
+
+
+
+    <!--浮窗颜色-->
+    <color name="mediumGray">#CCD1D9</color>
+    <color name="mediumGrayDark">#AAB2BD</color>
+
+    <color name="grapefruit">#ED5565</color>
+    <color name="grapefruitDark">#DA4453</color>
+
+    <color name="darkGray">#656D78</color>
+    <color name="darkGrayDark">#434A54</color>
+
+    <color name="loveGreen">#62C554</color>
+    <color name="loveGreenDark">#479841</color>
+
+    <!--浮动吐司颜色-->
+    <color name="lightGray">#F5F7FA</color>
+    <color name="lightGrayDark">#E6E9ED</color>
+
+
 </resources>

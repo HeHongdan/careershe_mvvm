@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">ui</string>
+
+    <string name="du_adjust_tips">拖动按钮以调整窗口的高度。</string>
+    <string name="de_permission_tips">请授权「显示在其他应用上层」的权限。</string>
+    <string name="du_app_info">API列表</string>
 </resources>

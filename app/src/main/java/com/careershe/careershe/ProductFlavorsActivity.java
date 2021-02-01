@@ -5,10 +5,18 @@ import android.content.Context;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
+import android.view.ViewGroup;
+import android.view.ViewParent;
 import android.widget.ImageView;
 import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
+
+import com.blankj.utilcode.util.LogUtils;
+import com.blankj.utilcode.util.StringUtils;
 import com.bumptech.glide.Glide;
+import com.careershe.ui.floatview.FloatToast;
+import com.careershe.ui.floatview.debug.DebugIcon;
+import com.careershe.ui.floatview.debug.DebugUtils;
 
 public class ProductFlavorsActivity extends AppCompatActivity {
 
@@ -91,4 +99,23 @@ public class ProductFlavorsActivity extends AppCompatActivity {
 
     }
 
+    @Override
+    protected void onResume() {
+        super.onResume();
+
+        ViewGroup.LayoutParams mParams = new ViewGroup.LayoutParams(
+                ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT
+        );
+
+
+        //LogUtils.i( "初始化= "+ ProductFlavorsActivity.this);
+
+        //DebugUtils.setIconId(R.drawable.du_ic_icon_default);
+
+//        ViewParent parent = DebugIcon.getInstance().getParent();
+//        if (parent != null) {
+//            ((ViewGroup) parent).removeView(DebugIcon.getInstance());
+//        }
+//        ((ViewGroup) ProductFlavorsActivity.this.findViewById(android.R.id.content)).addView(DebugIcon.getInstance(), mParams);
+    }
 }

@@ -7,4 +7,11 @@
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
+
+    <!--浮动窗口的样式-->
+    <style name="FloatAnimation">
+        <item name="android:windowEnterAnimation">@anim/float_in</item>
+        <item name="android:windowExitAnimation">@anim/float_out</item>
+    </style>
+
 </resources>

@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!--壳浮动-->
+    <item name="baseFloatView" type="id" />
+    <!--内容浮动-->
+    <item name="baseContentView" type="id" />
+</resources>

@@ -1,5 +1,9 @@
 package com.careershe.rxhttp.deprecatedhttp.request;
 
+import com.blankj.utilcode.util.SPStaticUtils;
+import com.blankj.utilcode.util.SPUtils;
+import com.careershe.rxhttp.deprecatedhttp.tool.SPHepler;
+
 /**
  * 类描述：Http请求类。
  *

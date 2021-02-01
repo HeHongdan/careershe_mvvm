@@ -31,54 +31,10 @@ public class BaseApp extends MultiDexApplication {
         super.onCreate();
         firstOpen = true;
         context = this;
-        initActivityManager();
-        init();
     }
 
     public static Context getContext() {
         return context;
-    }
-
-    /**
-     * 管理Activity
-     */
-    private void initActivityManager() {
-        registerActivityLifecycleCallbacks(new Application.ActivityLifecycleCallbacks() {
-            @Override
-            public void onActivityCreated(Activity activity, Bundle savedInstanceState) {
-            }
-
-            @Override
-            public void onActivityStarted(Activity activity) {
-            }
-
-            @Override
-            public void onActivityResumed(Activity activity) {
-            }
-
-            @Override
-            public void onActivityPaused(Activity activity) {
-            }
-
-            @Override
-            public void onActivityStopped(Activity activity) {
-            }
-
-            @Override
-            public void onActivitySaveInstanceState(Activity activity, Bundle outState) {
-            }
-
-            @Override
-            public void onActivityDestroyed(Activity activity) {
-            }
-        });
-    }
-
-    /**
-     * 一些第三方库和本地代码的初始化设置
-     */
-    private void init() {
-
     }
 
 }

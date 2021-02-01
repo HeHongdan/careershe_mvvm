@@ -103,21 +103,22 @@ android {
 
         careersheRelease {
             project.android {
-                storeFile new File(signPropertiesFile.getParent(), properties['keystore'])
+                storeFile new File(signPropertiesFile.getParent(), properties['storeFile'])
                 storePassword properties['storePassword']
                 keyAlias properties['keyAlias']
                 keyPassword properties['keyPassword']
                 //storeType //签名证书类型
-                println("[千职鹤]项目名称= ${project.toString()}；签名文件= " + storeFile + "；" + storePassword + "，" + keyAlias + "，" + keyPassword
-                )
+                println("[千职鹤]项目名称= ${project.toString()}；签名文件= " + storeFile + "；" + storePassword + "，" + keyAlias + "，" + keyPassword)
             }
         }
 
         testRelease {
-            storeFile new File(signPropertiesFile.getParent(), properties['keystoreDebug'])
-            storePassword properties['storePasswordDebug']
-            keyAlias properties['keyAliasDebug']
-            keyPassword properties['keyPasswordDebug']
+            project.android {
+                storeFile new File(signPropertiesFile.getParent(), properties['storeFileDebug'])
+                storePassword properties['storePasswordDebug']
+                keyAlias properties['keyAliasDebug']
+                keyPassword properties['keyPasswordDebug']
+            }
         }
     }
 

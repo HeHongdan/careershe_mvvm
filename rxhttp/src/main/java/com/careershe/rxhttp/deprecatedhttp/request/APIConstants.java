@@ -6,7 +6,7 @@ package com.careershe.rxhttp.deprecatedhttp.request;
  * @author devel
  */
 public class APIConstants {
-
+    /** 默认服务器url。 */
     public static String API_DEFAULT_HOST = "https://cn.bing.com/";
 
 }
