@@ -1,4 +1,4 @@
-package com.careershe.ui.floatview.debug;
+package com.careershe.ui.floatview.p;
 
 import android.content.Context;
 import android.content.res.Configuration;
@@ -32,12 +32,12 @@ import com.careershe.ui.floatview.listener.OnRefreshListener;
 import java.util.Stack;
 
 /**
- * 类描述：浮动内容视图。
- *
+ * 类描述：浮动内容画板(容器)视图。
+ * <p>
  * RelativeLayout
- *  ┗━━BaseFloatView
- *      ┗━━BaseContentFloatView
- *          ┗━━BaseContentView
+ * ┗━━BaseFloatView
+ * ┗━━BaseContentFloatView
+ * ┗━━BaseContentView
  *
  * @author HeHongdan
  * @date 2021/2/1
@@ -55,10 +55,10 @@ public abstract class BaseContentFloatView<T extends BaseContentFloatView<T>> ex
     private RelativeLayout bcfTitleRl;
     private ImageView bcfCloseIv;
     private TextView bcfTitleTv;
-    private ImageView          bcfAdjustIv;
+    private ImageView bcfAdjustIv;
 
     /** 画板。 */
-    private SwipePanel         swipePanel;
+    private SwipePanel swipePanel;
     /** 刷新监听器。 */
     private OnRefreshListener mRefreshListener;
     /** 浮窗内容视图。 */
@@ -69,7 +69,7 @@ public abstract class BaseContentFloatView<T extends BaseContentFloatView<T>> ex
     private static final ViewGroup.LayoutParams PARAMS = new ViewGroup.LayoutParams(
             ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT
     );
-    private Runnable          mRotateRunnable = new Runnable() {
+    private Runnable mRotateRunnable = new Runnable() {
         @Override
         public void run() {
             Drawable topDrawable = swipePanel.getTopDrawable();
@@ -234,6 +234,7 @@ public abstract class BaseContentFloatView<T extends BaseContentFloatView<T>> ex
 
         TouchUtils.setOnTouchListener(bcfAdjustIv, new TouchUtils.OnTouchUtilsListener() {
             private int minHeight;
+
             @Override
             public boolean onDown(View view, int x, int y, MotionEvent event) {
                 int[] locations = new int[2];
@@ -371,7 +372,6 @@ public abstract class BaseContentFloatView<T extends BaseContentFloatView<T>> ex
     public void setTitle(CharSequence title) {
         bcfTitleTv.setText(title);
     }
-
 
 
     /**

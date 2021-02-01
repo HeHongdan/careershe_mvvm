@@ -1,6 +1,8 @@
 package com.careershe.rxhttp.deprecatedhttp.request;
 
 import com.careershe.rxhttp.deprecatedhttp.data.HttpResponseInterface;
+import com.careershe.rxhttp.deprecatedhttp.tool.AddCookiesInterceptor;
+import com.careershe.rxhttp.deprecatedhttp.tool.HttpInterceptor;
 import com.careershe.rxhttp.deprecatedhttp.tool.ResponseConverterFactory;
 
 import java.util.concurrent.TimeUnit;
@@ -71,8 +73,8 @@ public class HttpFactory {
     private static OkHttpClient HTTP_CLIENT =
             new OkHttpClient.Builder()
                     //添加自定义拦截器
-//                    .addInterceptor(new HttpInterceptor())
-//                    .addInterceptor(new AddCookiesInterceptor())
+                    .addInterceptor(new HttpInterceptor())
+                    .addInterceptor(new AddCookiesInterceptor())
                     //设置超时时间
                     .connectTimeout(60, TimeUnit.SECONDS)
                     .readTimeout(60, TimeUnit.SECONDS)

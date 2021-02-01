@@ -1,16 +1,15 @@
 package com.careershe.rxhttp.deprecatedhttp.tool;
 
-import com.blankj.utilcode.util.SPStaticUtils;
 import com.blankj.utilcode.util.SPUtils;
 
 /**
- * 类描述：。
+ * 类描述：SP辅助类。
  *
  * @author HeHongdan
  * @date 2021/2/1
  * @since v2021/2/1
  */
-public class SPHepler {
+public class SPHelper {
 
     /** 关键字：SP。 */
     public static final class HawkCode {
@@ -24,11 +23,11 @@ public class SPHepler {
 
     }
 
-    private static SPUtils getSp() {
+    public static SPUtils getHttpSp() {
         return SPUtils.getInstance(HawkCode.SP_NAME);
 
-        //getSp().getInt(view.getClass().getSimpleName() + ".heightL", height);
-        //getSp().put(view.getClass().getSimpleName() + ".alpha", alpha);
+        //getHttpSp().getInt(view.getClass().getSimpleName() + ".heightL", height);
+        //getHttpSp().put(view.getClass().getSimpleName() + ".alpha", alpha);
     }
 
 }

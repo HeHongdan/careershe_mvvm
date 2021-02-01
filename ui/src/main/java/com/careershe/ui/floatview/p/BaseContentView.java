@@ -1,4 +1,4 @@
-package com.careershe.ui.floatview.debug;
+package com.careershe.ui.floatview.p;
 
 import android.content.Context;
 import android.widget.FrameLayout;

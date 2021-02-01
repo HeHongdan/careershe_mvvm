@@ -9,12 +9,15 @@ import android.widget.ImageView;
 import android.widget.RelativeLayout;
 
 import com.blankj.utilcode.util.BarUtils;
+import com.blankj.utilcode.util.ClickUtils;
+import com.blankj.utilcode.util.LogUtils;
 import com.blankj.utilcode.util.PermissionUtils;
 import com.blankj.utilcode.util.ToastUtils;
 import com.blankj.utilcode.util.TouchUtils;
 import com.careershe.ui.R;
 import com.careershe.ui.floatview.helper.ShadowHelper;
 import com.careershe.ui.floatview.debug.config.DebugConfig;
+import com.careershe.ui.floatview.helper.WindowHelper;
 
 /**
  * 类描述：浮动圆形调试按钮。
@@ -103,26 +106,48 @@ public class DebugIcon extends RelativeLayout {
             }
         });
 
-        setOnClickListener(new OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-                    PermissionUtils.requestDrawOverlays(new PermissionUtils.SimpleCallback() {
-                        @Override
-                        public void onGranted() {
-                            //TODO DebugMenu.getInstance().show();
-                        }
-
-                        @Override
-                        public void onDenied() {
-                            ToastUtils.showLong(R.string.de_permission_tips);
-                        }
-                    });
-                } else {
-                    //TODO DebugMenu.getInstance().show();
+        if (true) {
+            //触发点击3次进入
+            this.setOnClickListener(new ClickUtils.OnMultiClickListener(3) {
+                //触发点击
+                @Override
+                public void onTriggerClick(View v) {
+                    LogUtils.v("点击3次");
                 }
-            }
-        });
+
+                //触发点击前
+                @Override
+                public void onBeforeTriggerClick(View v, int count) {
+                    LogUtils.v("点击次数= " + count);
+                }
+            });
+        } else {
+            setOnClickListener(new OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+                        PermissionUtils.requestDrawOverlays(new PermissionUtils.SimpleCallback() {
+                            @Override
+                            public void onGranted() {
+                                //TODO DebugMenu.getInstance().show();
+                                LogUtils.v("显示列表");
+                            }
+
+                            @Override
+                            public void onDenied() {
+                                LogUtils.v("请授权给浮窗");
+                                ToastUtils.showLong(R.string.de_permission_tips);
+                            }
+                        });
+                    } else {
+                        //TODO DebugMenu.getInstance().show();
+                        LogUtils.v("显示列表");
+                    }
+                }
+            });
+        }
+
+
     }
 
     @Override

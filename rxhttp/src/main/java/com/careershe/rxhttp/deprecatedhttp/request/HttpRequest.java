@@ -1,11 +1,16 @@
 package com.careershe.rxhttp.deprecatedhttp.request;
 
-import com.blankj.utilcode.util.SPStaticUtils;
-import com.blankj.utilcode.util.SPUtils;
-import com.careershe.rxhttp.deprecatedhttp.tool.SPHepler;
-
 /**
  * 类描述：Http请求类。
+ * <p>
+ *     优点：
+ *          1.可动态改BaseUrl
+ *
+ *     缺点：
+ *          1.需要手动缓存
+ *          2.不支持定时缓存
+ *          3.
+ * </p>
  *
  * @author HeHongdan
  * @date 2021/1/31

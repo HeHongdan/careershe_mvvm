@@ -3,10 +3,13 @@ package com.careershe.careershe;
 import android.app.Activity;
 import android.content.Context;
 import android.os.Bundle;
+import android.view.ViewGroup;
+import android.view.ViewParent;
 
 import androidx.multidex.MultiDexApplication;
 
 import com.careershe.basics.base.BaseApp;
+import com.careershe.ui.floatview.debug.DebugIcon;
 
 import org.jetbrains.annotations.NotNull;
 
@@ -45,6 +48,12 @@ public class App extends BaseApp {
 
             @Override
             public void onActivityResumed(@NotNull Activity activity) {
+                ViewGroup.LayoutParams mParams = new ViewGroup.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
+                ViewParent parent = DebugIcon.getInstance().getParent();
+                if (parent != null) {
+                    ((ViewGroup) parent).removeView(DebugIcon.getInstance());
+                }
+                ((ViewGroup) activity.findViewById(android.R.id.content)).addView(DebugIcon.getInstance(), mParams);
             }
 
             @Override
