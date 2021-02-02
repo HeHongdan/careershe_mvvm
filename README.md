@@ -21,6 +21,17 @@
 <br>┗━━ui：ui资源
 <br>&nbsp;&nbsp;&nbsp;&nbsp;┗━━common：公共包，如：工具、常量、配置等
 
+<br>
+<br>app
+<br>├── basics：基础
+<br>│   ├── rxhttp：http请求
+<br>│   └── common：公共包，如：工具、常量、配置等
+<br>│
+<br>└── ui：ui资源
+<br>    └── common：公共包，如：工具、常量、配置等
+
+
+
 <br>如果它对你帮助很大，并且你很想支持库的后续开发和维护，我将不胜感激 :-)
 ### 其他说明
 [comment]: <> (* [README of English][utilcode])
