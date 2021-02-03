@@ -5,18 +5,19 @@ import android.content.Context;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
-import android.view.ViewGroup;
-import android.view.ViewParent;
 import android.widget.ImageView;
 import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.blankj.utilcode.util.LogUtils;
-import com.blankj.utilcode.util.StringUtils;
 import com.bumptech.glide.Glide;
-import com.careershe.ui.floatview.FloatToast;
-import com.careershe.ui.floatview.debug.DebugIcon;
-import com.careershe.ui.floatview.debug.DebugUtils;
+import com.careershe.deprecatedhttp.data.HttpBaseResponse;
+import com.careershe.deprecatedhttp.data.HttpDisposable;
+import com.careershe.deprecatedhttp.request.HttpFactory;
+import com.careershe.deprecatedhttp.request.HttpRequest;
+import com.careershe.deprecatedhttp.request.ImageBean;
+import com.careershe.deprecatedhttp.request.ServerAddress;
+import com.careershe.deprecatedhttp.tool.HttpException;
 
 public class ProductFlavorsActivity extends AppCompatActivity {
 
@@ -97,25 +98,52 @@ public class ProductFlavorsActivity extends AppCompatActivity {
             mTvSharedUserIdTest.setText(getString(R.string.shareduserid_info) + "正式版本 sharedUserId 不匹配");
         }
 
+
+
+
+
+        firstOpen = true;
+        setHttpConfig();
+    }
+
+
+    public static boolean firstOpen;
+    /**
+     * 配置Http。
+     */
+    public static void setHttpConfig() {
+        HttpFactory.HTTP_HOST_URL = ServerAddress.getApiDefaultHost();
+        HttpFactory.httpResponseInterface = (gson, response) -> {
+            if (firstOpen) {
+                firstOpen = false;
+                return response;
+            }
+            HttpBaseResponse httpResponse = gson.fromJson(response, HttpBaseResponse.class);
+            if (httpResponse.errorCode != 0) {
+                throw new HttpException(httpResponse.errorCode, httpResponse.errorMsg);
+            }
+
+            return gson.toJson(httpResponse.data);
+        };
     }
 
     @Override
     protected void onResume() {
         super.onResume();
 
-        ViewGroup.LayoutParams mParams = new ViewGroup.LayoutParams(
-                ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT
-        );
+        HttpRequest.getInstance(ServerAddress.API_BING)
+                .getImage("js", 0, 1)
+                .compose(HttpFactory.schedulers())
+                .subscribe(new HttpDisposable<ImageBean>() {
+                    @Override
+                    public void success(ImageBean imageBean) {
+                        LogUtils.i("请求图片(成功)= " + (imageBean == null ? "" : imageBean.getImages().get(0).getCopyrightlink()));
+                    }
 
-
-        //LogUtils.i( "初始化= "+ ProductFlavorsActivity.this);
-
-        //DebugUtils.setIconId(R.drawable.du_ic_icon_default);
-
-//        ViewParent parent = DebugIcon.getInstance().getParent();
-//        if (parent != null) {
-//            ((ViewGroup) parent).removeView(DebugIcon.getInstance());
-//        }
-//        ((ViewGroup) ProductFlavorsActivity.this.findViewById(android.R.id.content)).addView(DebugIcon.getInstance(), mParams);
+                    @Override
+                    public void onError(Throwable e) {
+                        LogUtils.e("请求图片(出错)= "+e);
+                    }
+                });
     }
 }
