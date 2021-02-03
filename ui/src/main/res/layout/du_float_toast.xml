@@ -23,7 +23,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textColor="@color/darkGrayDark"
-        android:textSize="@dimen/font_normal"
+        android:textSize="@dimen/dp_16"
         tools:text="吐司内容" />
 
 
