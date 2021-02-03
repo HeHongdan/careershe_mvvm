@@ -48,13 +48,18 @@ android {
         manifestPlaceholders = [UMENG_CHANNEL_VALUE: 'careershe']//填写AndroidManifest里的占位符
         manifestPlaceholders = [
                 qq_id        : '"默认值"',
-                JPUSH_PKGNAME: '"默认值"',
-                JPUSH_APPKEY : applicationId, //JPush 上注册的包名对应的 Appkey.
+
+                JPUSH_PKGNAME: applicationId,
+                JPUSH_APPKEY : "e53e97f105caf33f364a6f5f", //Portal上注册的包名对应的 appKey.
                 JPUSH_CHANNEL: "developer-default", //暂时填写默认值即可.
         ]
 
         //多个Dex
         multiDexEnabled true
+        //指定生成的字节码版本。我们建议你设置这个值为能够提供你正在使用的所有功能的最低API级别
+        renderscriptTargetApi 25
+        renderscriptSupportModeEnabled true
+
         // config the JSON processing library
         javaCompileOptions {
             annotationProcessorOptions {
@@ -65,9 +70,6 @@ android {
         ndk {
             abiFilters "armeabi-v7a"
         }
-        //指定生成的字节码版本。我们建议你设置这个值为能够提供你正在使用的所有功能的最低API级别
-        renderscriptTargetApi 25
-        renderscriptSupportModeEnabled true
     }
 
     /** 发布、调试版配置。 */
@@ -264,4 +266,5 @@ repositories {
 dependencies {
     implementation project(path: ':basics')
     implementation project(':ui')
+    implementation project(':utildebug')
 }

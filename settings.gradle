@@ -2,6 +2,7 @@ include ':common'
 include ':rxhttp'
 include ':basics'
 include ':ui'
+include ':utildebug'
 include ':app'
 rootProject.name = "Careershe"
 

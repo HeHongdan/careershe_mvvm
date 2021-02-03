@@ -1,10 +1,4 @@
-<!--
-[![logo][logo]](https://github.com/Blankj/AndroidUtilCode)
-
-[![frame][frame]](https://github.com/Blankj/AucFrameTemplate)
-
-[![auc][aucSvg]][auc] [![result][apiSvg]][result] [![build][buildSvg]][build] [![License][licenseSvg]][license]
--->
+![logo](https://www.careershe.com/images/logo.png "logo")
 
 # [千职鹤](https://www.careershe.com/)
 
@@ -13,22 +7,13 @@
 
 ## 说明文档
 ### 结构说明
-<br>app
-<br>┣━━basics：基础
-<br>┃&nbsp;&nbsp;&nbsp;&nbsp;┗━━rxhttp：http请求
-<br>┃&nbsp;&nbsp;&nbsp;&nbsp;┗━━common：公共包，如：工具、常量、配置等
+<br>`app`
+<br>┣━`basics`**基础模块**
+<br>┃&nbsp;&nbsp;&nbsp;&nbsp;┗━`rxhttp`**http请求模块**
+<br>┃&nbsp;&nbsp;&nbsp;&nbsp;┗━`common`**公共模块**包含：工具、常量、配置等
 <br>┃
-<br>┗━━ui：ui资源
-<br>&nbsp;&nbsp;&nbsp;&nbsp;┗━━common：公共包，如：工具、常量、配置等
-
-<br>
-<br>app
-<br>├── basics：基础
-<br>│   ├── rxhttp：http请求
-<br>│   └── common：公共包，如：工具、常量、配置等
-<br>│
-<br>└── ui：ui资源
-<br>    └── common：公共包，如：工具、常量、配置等
+<br>┗━`ui`**ui资源模块**包含：屏幕适配、自定义View等
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;┗━ `common`**公共模块**包含：工具、常量、配置等
 <br>
 
 ### 其他说明
@@ -40,6 +25,7 @@
 [//]: # (## Contact)
 [//]: # ([![Blog][blogSvg]][blog] [![jianshu][jianshuSvg]][jianshu] [![weibo][weiboSvg]][weibo] [![QQGroup][qqgroupSvg]][qqgroup])
 
+<br>
 ## 打个小广告
 欢迎加入「**[千职鹤](https://www.careershe.com/)**」一起开发。
 

@@ -1,4 +1,4 @@
-package com.careershe.ui.floatview.p;
+package com.careershe.ui.floatview.panel;
 
 import android.content.Context;
 import android.content.res.Configuration;

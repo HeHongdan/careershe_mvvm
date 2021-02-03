@@ -1,0 +1,39 @@
+apply plugin: 'com.android.library'
+//apply plugin: 'com.android.application'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
+
+android {
+    compileSdkVersion rootProject.ext.android.compileSdkVersion
+    buildToolsVersion rootProject.ext.android.buildToolsVersion
+
+    defaultConfig {
+        minSdkVersion rootProject.ext.android.minSdkVersion
+        targetSdkVersion rootProject.ext.android.targetSdkVersion
+//        applicationId "com.careershe.rxhttp"
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+}
+
+dependencies {
+//    implementation project(':ui')
+    implementation 'androidx.appcompat:appcompat:'+ rootProject.ext.dependencieVersions.appcompat
+    implementation 'androidx.recyclerview:recyclerview:1.1.0'
+
+
+    implementation "com.blankj:utilcodex:1.30.5"
+
+    implementation "com.blankj:swipe-panel:1.2"
+
+    implementation "com.github.chrisbanes:PhotoView:2.3.0"
+}
