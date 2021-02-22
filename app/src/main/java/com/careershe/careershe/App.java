@@ -5,8 +5,9 @@ import android.os.Bundle;
 import android.view.ViewGroup;
 import android.view.ViewParent;
 
-import com.blankj.utildebug.icon.DebugIcon;
+//import com.blankj.utildebug.icon.DebugIcon;
 import com.careershe.basics.base.BaseApp;
+import com.careershe.ui.floatview.debug.DebugIcon;
 
 import org.jetbrains.annotations.NotNull;
 
@@ -48,18 +49,17 @@ public class App extends BaseApp {
 
                 ViewGroup.LayoutParams mParams = new ViewGroup.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
 
-                ViewParent parent = com.blankj.utildebug.icon.DebugIcon.getInstance().getParent();
-                if (parent != null) {
-                    ((ViewGroup) parent).removeView(com.blankj.utildebug.icon.DebugIcon.getInstance());
-                }
-                ((ViewGroup) activity.findViewById(android.R.id.content)).addView(com.blankj.utildebug.icon.DebugIcon.getInstance(), mParams);
-
-
-//                ViewParent parent = DebugIcon.getInstance().getParent();
+//                ViewParent parent = com.blankj.utildebug.icon.DebugIcon.getInstance().getParent();
 //                if (parent != null) {
-//                    ((ViewGroup) parent).removeView(DebugIcon.getInstance());
+//                    ((ViewGroup) parent).removeView(com.blankj.utildebug.icon.DebugIcon.getInstance());
 //                }
-//                ((ViewGroup) activity.findViewById(android.R.id.content)).addView(DebugIcon.getInstance(), mParams);
+//                ((ViewGroup) activity.findViewById(android.R.id.content)).addView(com.blankj.utildebug.icon.DebugIcon.getInstance(), mParams);
+
+                ViewParent parent = DebugIcon.getInstance().getParent();
+                if (parent != null) {
+                    ((ViewGroup) parent).removeView(DebugIcon.getInstance());
+                }
+                ((ViewGroup) activity.findViewById(android.R.id.content)).addView(DebugIcon.getInstance(), mParams);
 
             }
 

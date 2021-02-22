@@ -7,8 +7,10 @@ buildscript {
 //    println("[千职鹤]Kotlin版本= $kotlin_version = "+ext.dependencieVersions.kotlin_version)
 
     repositories {
+        maven{ url'http://maven.aliyun.com/nexus/content/groups/public/' }
         google()
         jcenter()
+        maven { url "https://jitpack.io" }
     }
     dependencies {
         classpath "com.android.tools.build:gradle:4.0.0"
@@ -21,6 +23,7 @@ buildscript {
 
 allprojects {
     repositories {
+        maven{ url'http://maven.aliyun.com/nexus/content/groups/public/' }
         google()
         jcenter()
         maven { url "https://jitpack.io" }

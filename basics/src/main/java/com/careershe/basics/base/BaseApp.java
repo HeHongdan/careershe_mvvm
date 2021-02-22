@@ -7,6 +7,9 @@ import android.os.Bundle;
 
 import androidx.multidex.MultiDexApplication;
 
+import com.blankj.utilcode.util.LogUtils;
+import com.careershe.basics.BuildConfig;
+
 
 /**
  * 类描述：基础的应用类。
@@ -29,8 +32,11 @@ public class BaseApp extends MultiDexApplication {
     @Override
     public void onCreate() {
         super.onCreate();
-        firstOpen = true;
+
         context = this;
+        firstOpen = true;
+        LogUtils.getConfig().setGlobalTag("[千职鹤]");
+        LogUtils.getConfig().setConsoleSwitch(BuildConfig.DEBUG);
     }
 
     public static Context getContext() {

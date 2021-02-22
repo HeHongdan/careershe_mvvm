@@ -55,7 +55,6 @@ android {
 dependencies {
     implementation project(':common')
 
-    api 'androidx.appcompat:appcompat:'+ rootProject.ext.dependencieVersions.appcompat
     api 'androidx.constraintlayout:constraintlayout:'+ rootProject.ext.dependencieVersions.constraintlayout
 
 //    implementation fileTree(dir: "libs", include: ["*.jar"])

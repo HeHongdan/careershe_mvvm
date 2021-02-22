@@ -23,14 +23,17 @@ static def buildDate() {
 android {
     compileSdkVersion rootProject.ext.android.compileSdkVersion
     buildToolsVersion rootProject.ext.android.buildToolsVersion
-    
+
     defaultConfig {
         applicationId "com.careershe.careershe"
         versionCode rootProject.ext.android.versionCode
         versionName rootProject.ext.android.versionName
         minSdkVersion rootProject.ext.android.minSdkVersion
         targetSdkVersion rootProject.ext.android.targetSdkVersion
-        println("[千职鹤]编译版本号= " + compileSdkVersion)
+        println("【千职鹤】编译版本= " + compileSdkVersion
+                + "；版本号= " + versionCode
+                + "，版本名称= " + versionName
+        )
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
 
         //写入编译时常量
@@ -101,7 +104,7 @@ android {
         if (!signPropertiesFile.exists()) return
         Properties properties = new Properties()
         properties.load(new FileInputStream(signPropertiesFile))
-        //println("[千职鹤]项目名称= ${project.toString()}；读取签名配置文件= " + properties)
+        //println("【千职鹤】项目名称= ${project.toString()}；读取签名配置文件= " + properties)
 
         careersheRelease {
             project.android {
@@ -110,7 +113,7 @@ android {
                 keyAlias properties['keyAlias']
                 keyPassword properties['keyPassword']
                 //storeType //签名证书类型
-                println("[千职鹤]项目名称= ${project.toString()}；签名文件= " + storeFile + "；" + storePassword + "，" + keyAlias + "，" + keyPassword)
+                println("【千职鹤】项目名称= ${project.toString()}" + "；商店密码= " + storePassword + "，别名= " + keyAlias + "，签名密码= " + keyPassword + "；签名文件= " + storeFile)
             }
         }
 
@@ -131,72 +134,60 @@ android {
         debugApk {
             applicationId = "com.careershe.careershe.debug"
             versionCode = buildTime()
-            versionName defaultConfig.versionName +"."+ buildDate()
+            versionName defaultConfig.versionName + "." + buildDate()
             signingConfig signingConfigs.testRelease
 
-            println("[千职鹤]调试版本= " + applicationId+";" + versionCode+";" + versionName+";" +signingConfig)
+            println("【千职鹤】调试渠道：" + "版本号= " + versionCode + "，版本名称= " + versionName + "，应用Id= " + applicationId + "；签名信息= " + signingConfig)
+
             buildConfigField "String", "QQ_ID", '"584022220"' // qq appId
             buildConfigField "String", "WX_ID", '"debugApkWXId"' // 微信 appId
         }
 
         careersheApk {
-            applicationId defaultConfig.applicationId
-            versionCode defaultConfig.versionCode
-            versionName defaultConfig.versionName
             signingConfig signingConfigs.careersheRelease
 
+            //println("【千职鹤】官网渠道：" + "版本号= " + defaultConfig.versionCode + "，版本名称= " + defaultConfig.versionName + "，应用Id= " + defaultConfig.applicationId + "；签名信息= " + signingConfig)
+
             String qq_id = '"careersheApk"'
-            buildConfigField "String", "QQ_ID", qq_id // qq appId
-            buildConfigField "String", "WX_ID", '"careersheApkWX"' // 微信 appId
+            buildConfigField "String", "QQ_ID", qq_id
+            buildConfigField "String", "WX_ID", '"careersheApkWX"'
             buildConfigField "String", "LOGOURL", '"https://ss0.bdstatic.com/70cFuHSh_Q1YnxGkpoWK1HF6hhy/it/u=2072087045,227865347&fm=27&gp=0.jpg"'
         }
 
         emuiApk {
-            applicationId defaultConfig.applicationId
-            versionCode defaultConfig.versionCode
-            versionName defaultConfig.versionName
             signingConfig signingConfigs.careersheRelease
 
             String qq_id = '"emuiApk"'
 
-            buildConfigField "String", "QQ_ID", qq_id // qq appId
-            buildConfigField "String", "WX_ID", '"three--abcdefghijklmnopqrst"' // 微信 appId
+            buildConfigField "String", "QQ_ID", qq_id
+            buildConfigField "String", "WX_ID", '"three--abcdefghijklmnopqrst"'
             buildConfigField "String", "LOGOURL", '"https://ss0.bdstatic.com/70cFuHSh_Q1YnxGkpoWK1HF6hhy/it/u=3117066670,3759738700&fm=27&gp=0.jpg"'
         }
 
         miuiApk {
-            applicationId defaultConfig.applicationId
-            versionCode defaultConfig.versionCode
-            versionName defaultConfig.versionName
             signingConfig signingConfigs.careersheRelease
 
             String qq_id = '"emuiApk"'
-            buildConfigField "String", "QQ_ID", qq_id // qq appId
-            buildConfigField "String", "WX_ID", '"miuiApkWXId"' // 微信 appId
+            buildConfigField "String", "QQ_ID", qq_id
+            buildConfigField "String", "WX_ID", '"miuiApkWXId"'
             buildConfigField "String", "LOGOURL", '"https://ss0.bdstatic.com/70cFuHSh_Q1YnxGkpoWK1HF6hhy/it/u=3117066670,3759738700&fm=27&gp=0.jpg"'
         }
 
         oppoApk {
-            applicationId defaultConfig.applicationId
-            versionCode defaultConfig.versionCode
-            versionName defaultConfig.versionName
             signingConfig signingConfigs.careersheRelease
 
             String qq_id = '"oppoApk"'
-            buildConfigField "String", "QQ_ID", qq_id // qq appId
-            buildConfigField "String", "WX_ID", '"oppoApkWXId"' // 微信 appId
+            buildConfigField "String", "QQ_ID", qq_id
+            buildConfigField "String", "WX_ID", '"oppoApkWXId"'
             buildConfigField "String", "LOGOURL", '"https://ss0.bdstatic.com/70cFuHSh_Q1YnxGkpoWK1HF6hhy/it/u=3117066670,3759738700&fm=27&gp=0.jpg"'
         }
 
         oppoApk {
-            applicationId defaultConfig.applicationId
-            versionCode defaultConfig.versionCode
-            versionName defaultConfig.versionName
             signingConfig signingConfigs.careersheRelease
 
             String qq_id = '"vivoApk"'
-            buildConfigField "String", "QQ_ID", qq_id // qq appId
-            buildConfigField "String", "WX_ID", '"oppoApkWXId"' // 微信 appId
+            buildConfigField "String", "QQ_ID", qq_id
+            buildConfigField "String", "WX_ID", '"oppoApkWXId"'
             buildConfigField "String", "LOGOURL", '"https://ss0.bdstatic.com/70cFuHSh_Q1YnxGkpoWK1HF6hhy/it/u=3117066670,3759738700&fm=27&gp=0.jpg"'
         }
 
@@ -226,7 +217,7 @@ android {
                 //${releaseTime()}当前时间
                 outputFileName = "${chineseName}-${variant.productFlavors[0].name}-v${variant.productFlavors[0].versionName}-${releaseTime()}.apk"
 
-                //println("[千职鹤]打包文件= " + outputFileName)
+                //println("【千职鹤】打包文件= " + outputFileName)
             }
     }
 
@@ -266,5 +257,5 @@ repositories {
 dependencies {
     implementation project(path: ':basics')
     implementation project(':ui')
-    implementation project(':utildebug')
+    implementation project(':actionbarex')
 }

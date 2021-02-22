@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!--基础ActionBar-->
+    <declare-styleable name="ActionBarEx">
+        <attr name="ab_immersion" format="enum">
+            <enum name="unchanged" value="0" />
+            <enum name="ordinary" value="1" />
+            <enum name="immersed" value="2" />
+        </attr>
+        <attr name="ab_backgroundLayerLayout" format="reference" />
+        <attr name="ab_backgroundLayerImageRes" format="reference" />
+        <attr name="ab_statusBarVisible" format="enum">
+            <enum name="auto" value="0" />
+            <enum name="visible" value="1" />
+            <enum name="gone" value="2" />
+        </attr>
+        <attr name="ab_statusBarColor" format="color|reference" />
+        <attr name="ab_statusBarMode" format="enum">
+            <enum name="unchanged" value="0" />
+            <enum name="light" value="1" />
+            <enum name="dark" value="2" />
+            <enum name="auto" value="3" />
+            <enum name="realTime" value="4" />
+        </attr>
+        <attr name="ab_clickToFinish" format="reference" />
+        <attr name="ab_titleBarLayout" format="reference" />
+        <attr name="ab_titleBarHeight" format="dimension|reference" />
+        <attr name="ab_bottomLineHeight" format="dimension|reference" />
+        <attr name="ab_bottomLineColor" format="color|reference" />
+        <attr name="ab_bottomLineResId" format="reference" />
+        <attr name="ab_bottomLineOutside" format="boolean|reference" />
+        <attr name="ab_foregroundLayerLayout" format="reference" />
+    </declare-styleable>
+
+    <!--Text、Icon封装-->
+    <declare-styleable name="ActionView">
+        <attr name="av_text" format="string|reference" />
+        <attr name="av_textSize" format="dimension|reference" />
+        <attr name="av_textColor" format="color|reference" />
+        <attr name="av_textPadding" format="dimension|reference" />
+        <attr name="av_textPaddingLeft" format="dimension|reference" />
+        <attr name="av_textPaddingRight" format="dimension|reference" />
+        <attr name="av_textPaddingTop" format="dimension|reference" />
+        <attr name="av_textPaddingBottom" format="dimension|reference" />
+        <attr name="av_textMargin" format="dimension|reference" />
+        <attr name="av_textMarginLeft" format="dimension|reference" />
+        <attr name="av_textMarginRight" format="dimension|reference" />
+        <attr name="av_textMarginTop" format="dimension|reference" />
+        <attr name="av_textMarginBottom" format="dimension|reference" />
+        <attr name="av_icon" format="reference" />
+        <attr name="av_iconColor" format="color|reference" />
+        <attr name="av_iconPadding" format="dimension|reference" />
+        <attr name="av_iconPaddingLeft" format="dimension|reference" />
+        <attr name="av_iconPaddingRight" format="dimension|reference" />
+        <attr name="av_iconPaddingTop" format="dimension|reference" />
+        <attr name="av_iconPaddingBottom" format="dimension|reference" />
+        <attr name="av_iconMargin" format="dimension|reference" />
+        <attr name="av_iconMarginLeft" format="dimension|reference" />
+        <attr name="av_iconMarginRight" format="dimension|reference" />
+        <attr name="av_iconMarginTop" format="dimension|reference" />
+        <attr name="av_iconMarginBottom" format="dimension|reference" />
+    </declare-styleable>
+
+</resources>

@@ -32,6 +32,7 @@ dependencies {
     testImplementation 'junit:junit:'+ rootProject.ext.dependencieVersions.junit
     api 'androidx.test.ext:junit:'+ rootProject.ext.dependencieVersions.junitTest
     api 'androidx.test.espresso:espresso-core:'+ rootProject.ext.dependencieVersions.espressoCore
+    api 'androidx.appcompat:appcompat:'+ rootProject.ext.dependencieVersions.appcompat
 
     /** 工具库。 */
     api 'com.blankj:utilcodex:'+ rootProject.ext.dependencieVersions.utilcodex

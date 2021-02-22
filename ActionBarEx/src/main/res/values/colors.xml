@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<resources>
+
+    <color name="text_invert_same">#ffffff</color>
+
+
+    <color name="actionbarex_common_title_bar_icon_color_def">@color/text_invert_same</color>
+    <color name="actionbarex_common_title_bar_text_color_def">@color/text_invert_same</color>
+    <color name="actionbarex_common_title_bar_subtitle_text_color_def">@color/text_invert_same</color>
+    <color name="actionbarex_common_title_bar_title_text_color_def">@color/text_invert_same</color>
+    <color name="actionbarex_common_title_bar_title_text_hint_color_def">@color/text_invert_same</color>
+
+</resources>
