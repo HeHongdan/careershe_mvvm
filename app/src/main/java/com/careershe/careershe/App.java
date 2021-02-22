@@ -7,7 +7,7 @@ import android.view.ViewParent;
 
 //import com.blankj.utildebug.icon.DebugIcon;
 import com.careershe.basics.base.BaseApp;
-import com.careershe.ui.floatview.debug.DebugIcon;
+import com.careershe.ui.ui.floatview.debug.DebugIcon;
 
 import org.jetbrains.annotations.NotNull;
 

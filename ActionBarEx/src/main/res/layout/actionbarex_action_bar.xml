@@ -7,7 +7,7 @@
     android:orientation="vertical">
 
     <!--适配StatusBar-->
-    <com.careershe.common.widget.actionbar.StatusBarView
+    <com.hehongdan.actionbarex.StatusBarView
         android:id="@+id/actionbarex_status_bar"
         android:layout_width="match_parent"
         android:layout_height="0dp" />

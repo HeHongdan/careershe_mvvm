@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!--Careershe自定义ActionBar-->
+    <declare-styleable name="ActionBar">
+        <attr name="leftTextClickToFinish" format="boolean|reference" />
+        <attr name="leftIconClickToFinish" format="boolean|reference" />
+
+<!--        左边图标-->
+        <attr name="leftIconRes" format="reference" />
+        <attr name="leftIconColor" format="color|reference" />
+
+        <attr name="leftIconMarginLeft" format="dimension|reference" />
+        <attr name="leftIconMarginTop" format="dimension|reference" />
+        <attr name="leftIconMarginRight" format="dimension|reference" />
+        <attr name="leftIconMarginBottom" format="dimension|reference" />
+        <attr name="leftIconPaddingLeft" format="dimension|reference" />
+        <attr name="leftIconPaddingTop" format="dimension|reference" />
+        <attr name="leftIconPaddingRight" format="dimension|reference" />
+        <attr name="leftIconPaddingBottom" format="dimension|reference" />
+
+<!--        左边文本-->
+        <attr name="leftText" format="string|dimension" />
+
+        <attr name="leftTextMarginLeft" format="dimension|reference" />
+        <attr name="leftTextMarginTop" format="dimension|reference" />
+        <attr name="leftTextMarginRight" format="dimension|reference" />
+        <attr name="leftTextMarginBottom" format="dimension|reference" />
+        <attr name="leftTextPaddingLeft" format="dimension|reference" />
+        <attr name="leftTextPaddingTop" format="dimension|reference" />
+        <attr name="leftTextPaddingRight" format="dimension|reference" />
+        <attr name="leftTextPaddingBottom" format="dimension|reference" />
+
+
+<!--        中间(标题)图标-->
+        <attr name="titleIconRes" format="reference" />
+        <attr name="titleIconColor" format="color|reference" />
+
+        <attr name="titleIconMarginLeft" format="dimension|reference"/>
+        <attr name="titleIconMarginTop" format="dimension|reference"/>
+        <attr name="titleIconMarginRight" format="dimension|reference"/>
+        <attr name="titleIconMarginBottom" format="dimension|reference"/>
+
+        <attr name="titleIconPaddingLeft" format="dimension|reference"/>
+        <attr name="titleIconPaddingTop" format="dimension|reference"/>
+        <attr name="titleIconPaddingRight" format="dimension|reference"/>
+        <attr name="titleIconPaddingBottom" format="dimension|reference"/>
+
+        <!-- 中间(标题)文本-->
+
+        <attr name="titleText" format="string|reference"/>
+        <attr name="titleTextColor" format="color|reference"/>
+        <attr name="titleTextSize" format="dimension|reference"/>
+        <attr name="titleTextMaxWidth" format="dimension|reference"/>
+
+        <attr name="titleTextMarginLeft" format="dimension|reference"/>
+        <attr name="titleTextMarginTop" format="dimension|reference"/>
+        <attr name="titleTextMarginRight" format="dimension|reference"/>
+        <attr name="titleTextMarginBottom" format="dimension|reference"/>
+
+        <attr name="titleTextPaddingLeft" format="dimension|reference"/>
+        <attr name="titleTextPaddingTop" format="dimension|reference"/>
+        <attr name="titleTextPaddingRight" format="dimension|reference"/>
+        <attr name="titleTextPaddingBottom" format="dimension|reference"/>
+
+
+
+
+        <!--        右边图标-->
+        <attr name="rightIconRes" format="reference" />
+        <attr name="rightIconColor" format="color|reference" />
+
+        <attr name="rightIconMarginLeft" format="dimension|reference" />
+        <attr name="rightIconMarginTop" format="dimension|reference" />
+        <attr name="rightIconMarginRight" format="dimension|reference" />
+        <attr name="rightIconMarginBottom" format="dimension|reference" />
+        <attr name="rightIconPaddingLeft" format="dimension|reference" />
+        <attr name="rightIconPaddingTop" format="dimension|reference" />
+        <attr name="rightIconPaddingRight" format="dimension|reference" />
+        <attr name="rightIconPaddingBottom" format="dimension|reference" />
+
+        <!--        右边文本-->
+        <attr name="rightTextMarginLeft" format="dimension|reference" />
+        <attr name="rightTextMarginTop" format="dimension|reference" />
+        <attr name="rightTextMarginRight" format="dimension|reference" />
+        <attr name="rightTextMarginBottom" format="dimension|reference" />
+        <attr name="rightTextPaddingLeft" format="dimension|reference" />
+        <attr name="rightTextPaddingTop" format="dimension|reference" />
+        <attr name="rightTextPaddingRight" format="dimension|reference" />
+        <attr name="rightTextPaddingBottom" format="dimension|reference" />
+
+
+
+
+
+
+
+
+
+        <attr name="leftTextSize" format="dimension|reference" />
+        <attr name="leftTextColor" format="color|reference" />
+        <attr name="leftIconPadding" format="dimension|reference" />
+        <attr name="rightText" format="string|dimension" />
+        <attr name="rightTextSize" format="dimension|reference" />
+        <attr name="rightTextColor" format="color|reference" />
+
+
+
+
+    </declare-styleable>
+
+
+</resources>

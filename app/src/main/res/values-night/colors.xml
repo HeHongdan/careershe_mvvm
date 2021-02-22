@@ -1,12 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!--暗黑模式颜色-->
 <resources>
-<!--    <color name="colorPrimary">#6200EE</color>-->
-<!--    <color name="colorPrimaryDark">#3700B3</color>-->
-<!--    <color name="colorAccent">#03DAC5</color>-->
-
-    <color name="colorPrimary">@color/main</color>
-    <color name="colorPrimaryDark">@color/main_alpha</color>
-    <color name="colorAccent">@color/main_alpha</color>
 
     <!--自定义ActionBar-->
     <color name="actionbar_icon_color_def">@color/text_surface</color>
@@ -14,6 +8,5 @@
     <color name="actionbar_title_text_color_def">@color/text_surface</color>
     <color name="actionbar_subtitle_title_text_color_def">@color/text_surface</color>
     <color name="actionbar_title_bar_text_color_def">@color/text_surface</color>
-
 
 </resources>

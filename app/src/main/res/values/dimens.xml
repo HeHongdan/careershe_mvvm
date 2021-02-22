@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!--自定义ActionBar-->
+    <dimen name="actionbar_icon_size_def">@dimen/dp_44</dimen>
+    <dimen name="actionbar_padding_left_def">@dimen/dp_10</dimen>
+    <dimen name="actionbar_padding_right_def">@dimen/dp_10</dimen>
+
+<!--    <dimen name="actionbar_lefticonmarginleft_def">@dimen/dp_0</dimen>-->
+<!--    <dimen name="actionbar_lefticonmargintop_def">@dimen/dp_0</dimen>-->
+<!--    <dimen name="actionbar_lefticonmarginright_def">@dimen/dp_0</dimen>-->
+<!--    <dimen name="actionbar_lefticonmarginbottom_def">@dimen/dp_0</dimen>-->
+
+<!--    <dimen name="actionbar_lefticonpaddingleft_def">@dimen/dp_10</dimen>-->
+<!--    <dimen name="actionbar_lefticonpaddingtop_def">@dimen/dp_0</dimen>-->
+<!--    <dimen name="actionbar_lefticonpaddingright_def">@dimen/dp_10</dimen>-->
+<!--    <dimen name="actionbar_lefticonpaddingbottom_def">@dimen/dp_0</dimen>-->
+
+<!--    <dimen name="actionbar_leftTextmarginleft_def">@dimen/dp_0</dimen>-->
+<!--    <dimen name="actionbar_leftTextmargintop_def">@dimen/dp_0</dimen>-->
+<!--    <dimen name="actionbar_leftTextmarginright_def">@dimen/dp_0</dimen>-->
+<!--    <dimen name="actionbar_leftTextmarginbottom_def">@dimen/dp_0</dimen>-->
+
+<!--    <dimen name="actionbar_leftTextpaddingleft_def">@dimen/dp_10</dimen>-->
+<!--    <dimen name="actionbar_leftTextpaddingtop_def">@dimen/dp_0</dimen>-->
+<!--    <dimen name="actionbar_leftTextpaddingright_def">@dimen/dp_10</dimen>-->
+<!--    <dimen name="actionbar_leftTextpaddingbottom_def">@dimen/dp_0</dimen>-->
+
+<!--    <dimen name="actionbar_titleiconmarginleft_def">@dimen/dp_0</dimen>-->
+<!--    <dimen name="actionbar_titleiconmargintop_def">@dimen/dp_0</dimen>-->
+<!--    <dimen name="actionbar_titleiconmarginright_def">@dimen/dp_0</dimen>-->
+<!--    <dimen name="actionbar_titleiconmarginbottom_def">@dimen/dp_0</dimen>-->
+
+<!--    <dimen name="actionbar_titleiconpaddingleft_def">@dimen/dp_10</dimen>-->
+<!--    <dimen name="actionbar_titleiconpaddingtop_def">@dimen/dp_0</dimen>-->
+<!--    <dimen name="actionbar_titleiconpaddingright_def">@dimen/dp_10</dimen>-->
+<!--    <dimen name="actionbar_titleiconpaddingbottom_def">@dimen/dp_0</dimen>-->
+
+<!--    -->
+<!--    <dimen name="actionbar_titleTextmarginleft_def">@dimen/dp_0</dimen>-->
+<!--    <dimen name="actionbar_titleTextmargintop_def">@dimen/dp_0</dimen>-->
+<!--    <dimen name="actionbar_titleTextmarginright_def">@dimen/dp_0</dimen>-->
+<!--    <dimen name="actionbar_titleTextmarginbottom_def">@dimen/dp_0</dimen>-->
+
+<!--    <dimen name="actionbar_titleTextpaddingleft_def">@dimen/dp_10</dimen>-->
+<!--    <dimen name="actionbar_titleTextpaddingtop_def">@dimen/dp_0</dimen>-->
+<!--    <dimen name="actionbar_titleTextpaddingright_def">@dimen/dp_10</dimen>-->
+<!--    <dimen name="actionbar_titleTextpaddingbottom_def">@dimen/dp_0</dimen>-->
+
+
+
+
+
+
+
+
+    <dimen name="actionbar_title_text_size_def">@dimen/sp_18</dimen>
+    <dimen name="actionbar_subtitle_title_text_size_def">@dimen/sp_13</dimen>
+    <dimen name="actionbar_text_size">@dimen/sp_15</dimen>
+    <dimen name="actionbar_text_padding_left_def">@dimen/dp_10</dimen>
+    <dimen name="actionbar_text_padding_right_def">@dimen/dp_10</dimen>
+    <dimen name="actionbar_bar_height_def">@dimen/dp_44</dimen>
+    <dimen name="actionbar_title_text_max_width_def">@dimen/dp_150</dimen>
+    <dimen name="actionbar_subtitle_text_max_width_def">@dimen/dp_150</dimen>
+    <dimen name="actionbar_super_icon_padding_def">@dimen/dp_0</dimen>
+
+
+</resources>

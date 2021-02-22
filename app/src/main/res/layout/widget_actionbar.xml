@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/cl_"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/actionbar_icon_size_def"
+
+    tools:context=".widget.actionbar.ActionBar">
+
+    <com.hehongdan.actionbarex.ActionIconView
+        android:id="@+id/iv_left"
+        style="@style/ActionBarCareershe_ActionIconView"
+        android:background="?android:attr/selectableItemBackground"
+        android:src="@drawable/ic_back"
+
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+
+        tools:background="#3333"
+        tools:visibility="visible" />
+
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tv_left"
+        style="@style/ActionBarCareershe_ActionTextView"
+        android:background="?android:attr/selectableItemBackground"
+
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+
+
+        tools:background="#3333"
+        tools:text="返回"
+        tools:visibility="visible" />
+
+
+    <!--android:layout_marginRight="12dp"-->
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tv_title"
+        style="@style/ActionBarCareershe_TitleTextView"
+
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+
+        tools:background="#3333"
+        tools:text="标题标题标题标题标题标题标题标题标题标题标题标题标题"
+        tools:visibility="visible" />
+
+
+    <!-- android:scaleType="fitCenter"-->
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/iv_title"
+        android:layout_width="@dimen/dp_65"
+        android:layout_height="@dimen/dp_21"
+        android:layout_centerInParent="true"
+        android:gravity="center"
+        android:scaleType="fitXY"
+
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:src="@drawable/ic_icon_text"
+        tools:visibility="visible" />
+
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tv_right"
+        style="@style/ActionBarCareershe_ActionTextView"
+        android:background="?android:attr/selectableItemBackground"
+
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+
+        tools:background="#3333"
+        tools:text="确定"
+        tools:visibility="visible" />
+
+    <com.hehongdan.actionbarex.ActionIconView
+        android:id="@+id/iv_right"
+        style="@style/ActionBarCareershe_ActionIconView"
+        android:background="?android:attr/selectableItemBackground"
+        android:src="@drawable/ic_unstar"
+
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+
+        tools:background="#3333"
+        tools:visibility="visible" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

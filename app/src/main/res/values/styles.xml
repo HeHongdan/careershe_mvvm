@@ -1,10 +1,120 @@
-<resources>
-    <!-- Base application theme. -->
-    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
-        <!-- Customize your theme here. -->
-        <item name="colorPrimary">@color/colorPrimary</item>
-        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
-        <item name="colorAccent">@color/colorAccent</item>
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <!--
+    <item name="android:statusBarColor">@color/main</item>
+    <item name="android:navigationBarColor">@color/mainDark</item>
+      <item name="android:colorForeground">@color/foreground</item>
+    <item name="android:colorBackground">@color/background</item>
+    <item name="colorControlNormal">@color/assist</item>
+    <item name="colorControlHighlight">@color/mainDark</item>
+    <item name="colorControlActivated">@color/main</item>
+    <item name="colorButtonNormal">@color/second</item>
+    <item name="editTextColor">@color/text_surface</item>
+    <item name="textColor">@color/text_surface</item>
+    <item name="textColorPrimary">@color/text_surface</item>
+    <item name="textColorPrimary">@color/text_surface</item>
+    <item name="colorSwitchThumbNormal">@color/second</item>
+    -->
+    <style name="AppTheme.Dev2" parent="AppTheme">
+        <item name="colorPrimary">@color/main</item>
+        <item name="colorPrimaryDark">@color/mainDark</item>
+        <item name="colorAccent">@color/main_alpha</item>
+
+        <item name="android:windowBackground">@color/background</item>
+        <item name="android:textColorPrimary">@color/text_surface</item>
+        <item name="android:textColorHint">@color/text_fourth</item>
+        <item name="android:colorBackground">@color/background</item>
+
+        <!--可设置虚拟按键区域颜色-->
+        <item name="android:windowTranslucentNavigation">false</item>
+        <!--虚拟按钮颜色-->
+        <item name="android:navigationBarColor" tools:targetApi="lollipop">@color/foreground</item>
+        <!--状态栏颜色-->
+        <item name="android:statusBarColor" tools:targetApi="lollipop">@color/mainDark</item>
+        <!--可改变图标颜色-->
+        <item name="android:windowLightStatusBar" tools:targetApi="m">true</item>
+    </style>
+
+    <style name="AppTheme.Splash" parent="AppTheme">
+        <!--无标题-->
+        <!--        <item name="android:windowNoTitle">true</item>-->
+        <!--无ActionBar-->
+        <!--        <item name="android:windowActionBar">false</item>-->
+        <!--全屏即无通知栏-->
+        <!--        <item name="android:windowFullscreen">true</item>-->
+        <!--是否有遮盖-->
+        <!--        <item name="android:windowContentOverlay">@null</item>-->
+        <!--默认背景-->
+        <item name="android:windowBackground">@drawable/bg_splash</item>
+    </style>
+
+    <style name="AppTheme.Common" parent="AppTheme">
+        <item name="android:windowBackground">@color/background</item>
+    </style>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <!--标题栏Icon-->
+    <style name="ActionBarCareershe_ActionIconView">
+        <item name="android:layout_width">@dimen/actionbar_icon_size_def</item>
+        <item name="android:layout_height">@dimen/actionbar_icon_size_def</item>
+        <item name="android:padding">@dimen/dp_10</item>
+        <item name="android:gravity">center</item>
+        <item name="android:scaleType">fitCenter</item>
+        <item name="android:tint">@color/text_surface</item>
+    </style>
+
+    <!--标题栏左右文本-->
+    <style name="ActionBarCareershe_ActionTextView">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:paddingLeft">@dimen/dp_10</item>
+        <item name="android:paddingRight">@dimen/dp_10</item>
+        <item name="android:gravity">center</item>
+        <item name="android:textSize">@dimen/sp_16</item>
+        <item name="android:textColor">@color/text_surface</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:visibility">gone</item>
+    </style>
+
+    <!--标题栏中间文本-->
+    <style name="ActionBarCareershe_TitleTextView">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:maxWidth">@dimen/dp_150</item>
+        <item name="android:singleLine">true</item>
+        <item name="android:gravity">center</item>
+        <item name="android:layout_centerInParent">true</item>
+        <item name="android:textSize">@dimen/sp_18</item>
+        <item name="android:textColor">@color/text_surface</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:visibility">gone</item>
     </style>
 
 </resources>

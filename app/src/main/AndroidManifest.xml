@@ -14,7 +14,8 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
 
-        <activity android:name=".ProductFlavorsActivity">
+        <activity android:name=".MainActivity"
+            android:theme="@style/AppTheme.Common">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
