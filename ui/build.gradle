@@ -67,9 +67,15 @@ dependencies {
 
     api 'androidx.recyclerview:recyclerview:1.1.0'
     
+    /** 透明视图 */
+    api 'com.github.mmin18:realtimeblurview:1.1.2'
+    /** 自由指定宽高比 */
+    api 'com.github.goweii:PercentImageView:1.0.2'
     /** 浮窗用到 */
     api 'com.blankj:swipe-panel:1.2'
     /** VP指示器 */
     api 'com.github.hackware1993:MagicIndicator:1.7.0'
+    /** 底部指示器 */
+    api 'com.github.Vincent7Wong:EasyNavigation:2.0.5'
 
 }

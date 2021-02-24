@@ -1,4 +1,4 @@
-package com.careershe.common.lazyfragment.x
+package com.careershe.common.fragment.lazy.x
 
 import com.blankj.utilcode.util.LogUtils
 
@@ -32,11 +32,6 @@ abstract class LazyFragment : CacheFragment() {
         }
     }
 
-    /**
-     * 懒加载(子类加载数据、视图必须实现在个方法里)。
-     */
-    abstract fun lazyInit()
-
     override fun onDestroyView() {
         super.onDestroyView()
 
@@ -45,5 +40,9 @@ abstract class LazyFragment : CacheFragment() {
     }
 
 
+    /**
+     * 懒加载(子类加载数据、视图必须实现在个方法里)。
+     */
+    abstract fun lazyInit()
 
 }

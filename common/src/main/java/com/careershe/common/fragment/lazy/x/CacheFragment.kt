@@ -1,4 +1,4 @@
-package com.careershe.common.lazyfragment.x
+package com.careershe.common.fragment.lazy.x
 
 import android.os.Bundle
 import android.util.SparseArray
@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.annotation.IdRes
 import androidx.fragment.app.Fragment
+import com.blankj.utilcode.util.LogUtils
 
 /**
  * 类描述：缓存视图的Fragment。
@@ -81,7 +82,6 @@ abstract class CacheFragment : Fragment() {
         return view as V
     }
 
-
     /**
      * 查找指定视图(根据资源的Id)。
      *
@@ -90,10 +90,14 @@ abstract class CacheFragment : Fragment() {
      * @return 视图。
      */
     fun <V : View?> findViewById(@IdRes id: Int): V? {
+        LogUtils.d("根视图= " + mRootView)
+        LogUtils.d("目标资源ID= " + id)
+
         return if (mRootView == null) {
             null
         } else mRootView!!.findViewById<V>(id)
     }
+
 
     /**
      * 把设置视图的资源，延迟到子类实现。

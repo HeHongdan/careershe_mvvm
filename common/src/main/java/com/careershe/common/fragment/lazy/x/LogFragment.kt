@@ -1,4 +1,4 @@
-package com.careershe.common.lazyfragment.x
+package com.careershe.common.fragment.lazy.x
 
 import android.content.Context
 import android.os.Bundle

@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
+    <dimen name="bottom_bar_height">@dimen/dp_49</dimen>
+
     <!--自定义ActionBar-->
     <dimen name="actionbar_icon_size_def">@dimen/dp_44</dimen>
     <dimen name="actionbar_padding_left_def">@dimen/dp_10</dimen>
