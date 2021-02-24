@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
+    <color name="background_navigationbar_alpha">#f8f5f5f5</color>
 
     <!--通用颜色-->
     <color name="foreground_card">#ffffff</color>
