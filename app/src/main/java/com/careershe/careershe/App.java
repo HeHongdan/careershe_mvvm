@@ -7,6 +7,10 @@ import android.view.ViewParent;
 
 //import com.blankj.utildebug.icon.DebugIcon;
 import com.careershe.basics.base.BaseApp;
+import com.careershe.deprecatedhttp.data.HttpBaseResponse;
+import com.careershe.deprecatedhttp.request.HttpFactory;
+import com.careershe.deprecatedhttp.request.ServerAddress;
+import com.careershe.deprecatedhttp.tool.HttpException;
 import com.careershe.ui.ui.floatview.debug.DebugIcon;
 
 import org.jetbrains.annotations.NotNull;
@@ -85,7 +89,26 @@ public class App extends BaseApp {
      * 一些第三方库和本地代码的初始化设置
      */
     private void init() {
+        setHttpConfig();
+    }
 
+    /**
+     * 请求配置
+     */
+    public static void setHttpConfig() {
+
+        HttpFactory.HTTP_HOST_URL = ServerAddress.getApiDefaultHost();
+        HttpFactory.httpResponseInterface = (gson, response) -> {
+            if (firstOpen) {
+                firstOpen = false;
+                return response;
+            }
+            HttpBaseResponse httpResponse = gson.fromJson(response, HttpBaseResponse.class);
+            if (httpResponse.errorCode != 0) {
+                throw new HttpException(httpResponse.errorCode,httpResponse.errorMsg);
+            }
+            return gson.toJson(httpResponse.data);
+        };
     }
 
 }
