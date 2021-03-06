@@ -27,7 +27,7 @@ abstract class LazyFragment : CacheFragment() {
              * 懒加载(子类加载数据、视图必须实现在个方法里)。
              */
             lazyInit()
-            LogUtils.d("懒加载(onDestroyView前只执行1次)")
+            LogUtils.v("懒加载(onDestroyView前只执行1次)")
             isLoaded = true
         }
     }

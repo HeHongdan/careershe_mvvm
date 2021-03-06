@@ -46,4 +46,9 @@ dependencies {
     api 'com.squareup.okhttp3:okhttp:3.11.0'
     api 'com.squareup.okio:okio:2.9.0'
 
+    /** cookie持久化 */
+    api 'com.github.franmontiel:PersistentCookieJar:v1.0.1'
+    /** 磁盘缓存 */
+    api 'com.jakewharton:disklrucache:2.0.2'
+
 }

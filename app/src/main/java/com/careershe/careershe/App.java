@@ -7,6 +7,11 @@ import android.view.ViewParent;
 
 //import com.blankj.utildebug.icon.DebugIcon;
 import com.careershe.basics.base.BaseApp;
+import com.careershe.careershe.common.BuglyTask;
+import com.careershe.careershe.common.RxHttpInitTask;
+import com.careershe.careershe.common.UtilsInitTask;
+import com.careershe.careershe.common.CacheInitTask;
+import com.careershe.common.InitTaskRunner;
 import com.careershe.deprecatedhttp.data.HttpBaseResponse;
 import com.careershe.deprecatedhttp.request.HttpFactory;
 import com.careershe.deprecatedhttp.request.ServerAddress;
@@ -90,6 +95,15 @@ public class App extends BaseApp {
      */
     private void init() {
         setHttpConfig();
+
+        //初始化(第三方)库
+        new InitTaskRunner(this)
+                .add(new UtilsInitTask())
+                .add(new RxHttpInitTask())
+                .add(new CacheInitTask())
+                .add(new BuglyTask())
+//                .add(new DoKitInitTask())
+                .run();
     }
 
     /**

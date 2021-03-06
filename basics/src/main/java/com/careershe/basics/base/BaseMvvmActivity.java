@@ -7,6 +7,7 @@ import androidx.databinding.DataBindingUtil;
 import androidx.databinding.ViewDataBinding;
 import androidx.lifecycle.Observer;
 
+import com.blankj.utilcode.util.LogUtils;
 import com.careershe.basics.R;
 import com.careershe.basics.databinding.ActivityBaseMvvmBinding;
 import com.careershe.basics.databinding.ViewLoadErrorBinding;
@@ -50,6 +51,7 @@ public abstract class BaseMvvmActivity<DB extends ViewDataBinding, VM extends Ba
         //把子Activity的视图填充进来并支持DataBinding
         mDataBinding = DataBindingUtil.inflate(getLayoutInflater(), setContentView_(), mActivityBaseBinding.flContentContainer,true);
         initViewModel();
+        LogUtils.i("初始化 initViewModel");
         bindViewModel();
         mDataBinding.setLifecycleOwner(this);
         // ViewModel订阅生命周期事件
@@ -58,6 +60,7 @@ public abstract class BaseMvvmActivity<DB extends ViewDataBinding, VM extends Ba
         }
 
         initLoadState();
+        LogUtils.i("初始化 init");
         init();
     }
 
