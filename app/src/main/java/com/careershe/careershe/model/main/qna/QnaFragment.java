@@ -26,7 +26,7 @@ import java.util.List;
  */
 public class QnaFragment extends BaseMvvmFragment<FragmentQnaBinding, QnaViewModel> {
     /** 问答适配器。 */
-    private QnaAdapter mAdapter;
+    private QnaDBAdapter mAdapter;
     /** 网络数据。 */
     private QnaListBean mNetData;
 
@@ -95,7 +95,7 @@ public class QnaFragment extends BaseMvvmFragment<FragmentQnaBinding, QnaViewMod
 
 
     private void initAdapter() {
-        mAdapter = new QnaAdapter();
+        mAdapter = new QnaDBAdapter();
         mAdapter.getLoadMoreModule().setOnLoadMoreListener(new OnLoadMoreListener() {
             @Override
             public void onLoadMore() {

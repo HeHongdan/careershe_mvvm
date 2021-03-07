@@ -69,6 +69,10 @@ public class QnaBean extends BaseBean {
     private int newAnswerCount;
 
 
+    public String getId() {
+        return _id;
+    }
+
     public String getAskingName() {
         return askingName;
     }

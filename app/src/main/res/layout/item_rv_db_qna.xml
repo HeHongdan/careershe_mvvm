@@ -7,9 +7,17 @@
     tools:context=".model.main.qna.QnaFragment">
 
     <data>
+
+        <variable
+            name="viewModel"
+            type="com.careershe.careershe.model.main.qna.QnaDBAdapter" />
         <variable
             name="qna"
             type="com.careershe.careershe.model.main.qna.bean.QnaBean" />
+
+        <import type="android.view.View" />
+        <import type="android.text.TextUtils" />
+<!--        <import type="java.lang.String" />-->
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -17,6 +25,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@color/foreground"
+        android:onClick="@{()->viewModel.click(qna)}"
+        android:foreground="?android:attr/selectableItemBackground"
         android:gravity="center">
 
 
@@ -115,6 +125,7 @@
             android:text="@{qna.answerVo.answerText}"
             android:textColor="@color/text_surface"
             android:textSize="@dimen/sp_14"
+            android:visibility="@{TextUtils.isEmpty(qna.answerVo.answerText) ? View.GONE : View.VISIBLE}"
 
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="@+id/tv_question"
@@ -161,12 +172,14 @@
             android:layout_marginEnd="@dimen/dp_12"
 
             android:maxLength="4"
-            android:text="@{qna.answerVo.answerCount}"
             android:textColor="@color/text_second"
             android:textSize="@dimen/sp_14"
             app:layout_constraintBottom_toBottomOf="@+id/ll_tag"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="@+id/ll_tag"
             tools:text="99+" />
+        <!--
+        android:text="@{qna.answerCount > 99?@string/_99_plush : String.valueOf(qna.answerCount)}"
+        -->
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
