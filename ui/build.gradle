@@ -77,5 +77,10 @@ dependencies {
     api 'com.github.hackware1993:MagicIndicator:1.7.0'
     /** 底部指示器 */
     api 'com.github.Vincent7Wong:EasyNavigation:2.0.5'
-
+    /** 下拉刷新 */
+    api  'com.scwang.smart:refresh-layout-kernel:2.0.3'
+    /** 下拉刷新：经典头部 */
+    api  'com.scwang.smart:refresh-header-classics:2.0.3'
+    /** 卡片布局 */
+    api 'androidx.cardview:cardview:1.0.0'
 }

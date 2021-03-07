@@ -7,7 +7,6 @@ import android.widget.Toast;
 import androidx.annotation.Nullable;
 import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
-import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProviders;
 
 import com.blankj.utilcode.util.LogUtils;
@@ -16,7 +15,6 @@ import com.careershe.basics.base.BaseMvvmActivity;
 import com.careershe.careershe.R;
 import com.careershe.careershe.databinding.ActivitySplashBinding;
 import com.careershe.careershe.model.K2NavigationFragment;
-import com.careershe.http.bean.QnaListBean;
 import com.next.easynavigation.view.EasyNavigationBar;
 
 import java.util.ArrayList;

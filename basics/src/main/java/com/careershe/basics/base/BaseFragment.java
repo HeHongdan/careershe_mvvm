@@ -25,17 +25,17 @@ public abstract class BaseFragment extends LazyFragment {
 //    /** 绑定View注解。 */
 //    private Unbinder mUnbinder = null;
 
-
-
     @Nullable
     @Override
     public View onCreateView(@NotNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         super.onCreateView(inflater, container, savedInstanceState);
 
         if (view == null) {
-            final int layoutId = _onCreateView();
-            if (layoutId > 0) {
-                view = inflater.inflate(_onCreateView(), container, false);
+            if (getLayoutId() <= 0 ) {
+                setLayoutId(_onCreateView());
+            }
+            if (getLayoutId() > 0) {
+                view = inflater.inflate(getLayoutId(), container, false);
             }
         }
 

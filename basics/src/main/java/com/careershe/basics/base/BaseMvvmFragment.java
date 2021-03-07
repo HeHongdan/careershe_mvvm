@@ -66,8 +66,13 @@ public abstract class BaseMvvmFragment<DB extends ViewDataBinding, VM extends Ba
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+        super.onCreateView(inflater, container, savedInstanceState);
+
         mFragmentBaseBinding = DataBindingUtil.inflate(inflater, R.layout.fragment_base_mvvm, container, false);
-        mDataBinding = DataBindingUtil.inflate(inflater, onCreateView_(), mFragmentBaseBinding.flContentContainer, true);
+        if (getLayoutId() <= 0 ) {
+            setLayoutId(_onCreateView());
+        }
+        mDataBinding = DataBindingUtil.inflate(inflater, getLayoutId(), mFragmentBaseBinding.flContentContainer, true);
         bindViewModel();
         mDataBinding.setLifecycleOwner(this);
         initLoadState();
@@ -164,11 +169,12 @@ public abstract class BaseMvvmFragment<DB extends ViewDataBinding, VM extends Ba
      */
     protected abstract void initViewModel();
     /**
-     * 获取当前页面的布局资源ID
+     * 获取当前页面的布局资源ID//初始化视图(资源ID)。
      *
      * @return 布局资源ID
      */
-    protected abstract int onCreateView_();
+    @Override
+    protected abstract int _onCreateView();
     /**
      * 绑定ViewModel
      */

@@ -1,10 +1,13 @@
 package com.careershe.deprecatedhttp.request;
 
+import com.careershe.deprecatedhttp.bean.ArticleListBean;
+
 import io.reactivex.Observable;
 import retrofit2.http.Field;
 import retrofit2.http.FormUrlEncoded;
 import retrofit2.http.GET;
 import retrofit2.http.POST;
+import retrofit2.http.Path;
 import retrofit2.http.Query;
 
 /**
@@ -34,5 +37,37 @@ public interface ApiAddress {
     @FormUrlEncoded
     @POST("user/login")
     Observable<String> Login(@Field("username") String username, @Field("password") String password);
+
+
+
+
+    /**
+     * 获取微信公众号文章列表
+     *
+     * @param id   id
+     * @param page 页码
+     * @return
+     */
+    @GET("wxarticle/list/{id}/{page}/json")
+    Observable<ArticleListBean> getWechatArticleList(@Path("id") int id, @Path("page") int page);
+    /**
+     * 获取体系文章列表
+     *
+     * @param cid  id
+     * @param page 页码
+     * @return
+     */
+    @GET("article/list/{page}/json")
+    Observable<ArticleListBean> getSystemArticle(@Path("page") int page, @Query("cid") int cid);
+    /**
+     * 获取项目文章列表
+     *
+     * @param cid  id
+     * @param page 页码
+     * @return
+     */
+    @GET("project/list/{page}/json")
+    Observable<ArticleListBean> getProjectArticle(@Path("page") int page, @Query("cid") int cid);
+
 
 }

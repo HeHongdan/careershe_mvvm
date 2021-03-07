@@ -15,8 +15,8 @@ import com.next.easynavigation.view.EasyNavigationBar;
 
 import java.util.ArrayList;
 import java.util.List;
-
-public class MainActivity extends BaseActivity {
+@Deprecated
+public class MainActivity_ extends BaseActivity {
 
     /** 底部导航栏。 */
     private EasyNavigationBar navigationBar;
@@ -55,7 +55,7 @@ public class MainActivity extends BaseActivity {
                     @Override
                     public boolean onTabSelectEvent(View view, int position) {
                         if (position == 3) {
-                            Toast.makeText(MainActivity.this, "请先登录", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(MainActivity_.this, "请先登录", Toast.LENGTH_SHORT).show();
                             //return true则拦截事件、不进行页面切换
                             return true;
                         }

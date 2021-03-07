@@ -5,6 +5,7 @@ import java.util.List;
 /**
  * 用户登录信息
  */
+@Deprecated
 public class LoginBean {
 
     /**

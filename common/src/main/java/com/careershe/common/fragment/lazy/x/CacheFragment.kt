@@ -25,11 +25,19 @@ abstract class CacheFragment : Fragment() {
     protected var mViewCreated = false
     /** 缓存视图集合。 */
     protected var mCacheViews:SparseArray<View>? = null
+    /** 布局资源的Id。 */
+    protected var layoutId: Int = 0
+        get() {
+            field
+            return 0
+        }
+        set(value) {}
+
 
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         if (mRootView == null) {
-            val layoutId = _onCreateView()
+            layoutId = _onCreateView()
             if (layoutId > 0) {
                 mRootView = inflater.inflate(_onCreateView(), container, false)
             }
@@ -59,7 +67,6 @@ abstract class CacheFragment : Fragment() {
     open fun getRootView(): View? {
         return mRootView
     }
-
 
     /**
      * 缓存中获取指定视图(根据资源的Id)。
