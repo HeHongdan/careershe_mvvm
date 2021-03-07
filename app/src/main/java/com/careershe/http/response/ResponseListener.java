@@ -1,4 +1,4 @@
-package com.careershe.http;
+package com.careershe.http.response;
 
 import com.careershe.rxhttp.request.exception.ExceptionHandle;
 

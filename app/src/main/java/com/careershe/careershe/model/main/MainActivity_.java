@@ -33,7 +33,7 @@ public class MainActivity_ extends BaseActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_main_);
 
         navigationBar = findViewById(R.id.navigationBar);
         fragments.add(KnowledgeNavigationFragment.create());

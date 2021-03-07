@@ -1,4 +1,4 @@
-package com.careershe.careershe.model.articlelist;
+package com.careershe.careershe.model.main.qna;
 
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MediatorLiveData;
@@ -19,7 +19,7 @@ import java.util.List;
 /**
  * @author devel
  */
-public class ArticleListViewModel extends BaseViewModel {
+public class QnaViewModel extends BaseViewModel {
 
     /**
      * 是否为刷新数据
@@ -32,7 +32,7 @@ public class ArticleListViewModel extends BaseViewModel {
     private MutableLiveData<ArticleListBean> mArticleList;
     private List<ArticleBean> mList;
 
-    public ArticleListViewModel() {
+    public QnaViewModel() {
         mArticleList = new MediatorLiveData<>();
         mList = new ArrayList<>();
     }
@@ -184,6 +184,7 @@ public class ArticleListViewModel extends BaseViewModel {
      */
     private void loadProjectArticleList() {
         mPage++;
+
         HttpRequest.getInstance()
                 .getProjectArticle(mPage, mId)
                 .compose(HttpFactory.<ArticleListBean>schedulers())

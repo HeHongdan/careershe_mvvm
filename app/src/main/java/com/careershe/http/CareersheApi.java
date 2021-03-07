@@ -2,6 +2,7 @@ package com.careershe.http;
 
 //import com.careershe.careershe.ApplicationClass;
 import com.careershe.careershe.BuildConfig;
+import com.careershe.deprecatedhttp.request.ImageBean;
 import com.careershe.http.bean.QnaListBean;
 import com.careershe.rxhttp.request.Api;
 //import com.careershe.careershe.QNA;
@@ -960,6 +961,19 @@ public class CareersheApi extends Api {
 
 
         /**
+         * 获取闪屏页图片
+         *
+         * @param format
+         * @param idx
+         * @param n
+         * @return
+         */
+        @Deprecated
+        @GET("https://www.bing.com/HPImageArchive.aspx")
+        Observable<CareersheResponse<ImageBean>> getImage(@Query("format") String format, @Query("idx") int idx, @Query("n") int n);
+
+
+        /**
          * 获取问答列表。
          *
          * @param pageSize 一页几条。
@@ -972,6 +986,7 @@ public class CareersheApi extends Api {
                                                                     @Query("pageSize") int pageSize,
                                                                     @Query("pageNo") int pageNo
         );
+
 
 //
 //        /**

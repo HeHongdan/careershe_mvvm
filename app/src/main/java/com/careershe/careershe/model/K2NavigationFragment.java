@@ -3,6 +3,7 @@ package com.careershe.careershe.model;
 import androidx.fragment.app.Fragment;
 import androidx.viewpager.widget.ViewPager;
 
+import com.blankj.utilcode.util.LogUtils;
 import com.careershe.basics.base.BaseFragment;
 import com.careershe.careershe.R;
 import com.careershe.careershe.common.Config;
@@ -33,7 +34,7 @@ public class K2NavigationFragment extends BaseFragment implements ScrollTop {
 
     @Override
     protected int _onCreateView() {
-        return R.layout.fragment_2_navigation;
+        return R.layout.test_fragment_;
     }
 
     @Override
@@ -55,7 +56,7 @@ public class K2NavigationFragment extends BaseFragment implements ScrollTop {
 
     @Override
     public void lazyInit() {
-
+        LogUtils.e("懒加载");
     }
 
 

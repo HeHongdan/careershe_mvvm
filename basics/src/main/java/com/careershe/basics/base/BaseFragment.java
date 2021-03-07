@@ -5,6 +5,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.blankj.utilcode.util.LogUtils;
 import com.careershe.common.fragment.lazy.x.LazyFragment;
 
 import org.jetbrains.annotations.NotNull;
@@ -19,9 +20,6 @@ import org.jetbrains.annotations.Nullable;
  */
 public abstract class BaseFragment extends LazyFragment {
 
-
-    /** onCreateView填充的视图。 */
-    protected View view = null;
 //    /** 绑定View注解。 */
 //    private Unbinder mUnbinder = null;
 
@@ -29,20 +27,23 @@ public abstract class BaseFragment extends LazyFragment {
     @Override
     public View onCreateView(@NotNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         super.onCreateView(inflater, container, savedInstanceState);
+        LogUtils.v("Fragment 视图= "+ getRootView());
 
-        if (view == null) {
-            if (getLayoutId() <= 0 ) {
-                setLayoutId(_onCreateView());
-            }
-            if (getLayoutId() > 0) {
-                view = inflater.inflate(getLayoutId(), container, false);
+        if (getRootView() == null) {
+            final int layoutId = _onCreateView();
+            setLayoutId(layoutId);
+            LogUtils.v("Fragment 布局ID= "+ getLayoutId());
+            if (layoutId > 0) {
+                LogUtils.v("Fragment 布局ID(大于0)= "+ getLayoutId());
+                setRootView(inflater.inflate(layoutId, container, false));
             }
         }
 
         initButterKnife();
         initView();
 
-        return view;
+        LogUtils.w("Fragment 视图= "+ getRootView());
+        return getRootView();
     }
 
 
@@ -57,20 +58,24 @@ public abstract class BaseFragment extends LazyFragment {
     }
 
 
+
     /**
-     * 初始化视图(资源ID)。
+     * 初始化视图(资源ID)（onCreateView：CacheFragment）。
+     *
+     * @return 布局资源ID。
      */
     @Override
     protected abstract int _onCreateView();
 
     /**
-     * 初始化视图。
+     * 初始化视图（onCreateView：BaseFragment）。
      */
     protected abstract void initView();
 
     /**
-     * 懒加载(数据)。
+     * 懒加载(数据)（onResume：LazyFragment）。
      */
     @Override
     public abstract void lazyInit();
+
 }

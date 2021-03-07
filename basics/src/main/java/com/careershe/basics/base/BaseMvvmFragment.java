@@ -11,6 +11,7 @@ import androidx.databinding.DataBindingUtil;
 import androidx.databinding.ViewDataBinding;
 import androidx.lifecycle.Observer;
 
+import com.blankj.utilcode.util.LogUtils;
 import com.careershe.basics.R;
 import com.careershe.basics.databinding.FragmentBaseMvvmBinding;
 import com.careershe.basics.databinding.ViewLoadErrorBinding;
@@ -67,18 +68,22 @@ public abstract class BaseMvvmFragment<DB extends ViewDataBinding, VM extends Ba
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         super.onCreateView(inflater, container, savedInstanceState);
-
         mFragmentBaseBinding = DataBindingUtil.inflate(inflater, R.layout.fragment_base_mvvm, container, false);
-        if (getLayoutId() <= 0 ) {
+
+        LogUtils.v("Fragment 视图= "+ getRootView());
+        if (getRootView() == null) {
+            LogUtils.i("执行顺序");
             setLayoutId(_onCreateView());
+            LogUtils.v("Fragment 布局ID= "+ getLayoutId());
         }
+        LogUtils.v("Fragment 布局ID(大于0)= "+ getLayoutId());
         mDataBinding = DataBindingUtil.inflate(inflater, getLayoutId(), mFragmentBaseBinding.flContentContainer, true);
         bindViewModel();
         mDataBinding.setLifecycleOwner(this);
         initLoadState();
-        init();
 
-        return mFragmentBaseBinding.getRoot();
+        setRootView(mFragmentBaseBinding.getRoot());
+        return getRootView();
     }
 
 
@@ -164,32 +169,48 @@ public abstract class BaseMvvmFragment<DB extends ViewDataBinding, VM extends Ba
     }
 
 
+
     /**
-     * 初始化ViewModel(子类必须赋值)。
+     * 初始化ViewModel（onCreate：BaseMvvmFragment）。
      */
     protected abstract void initViewModel();
+
     /**
-     * 获取当前页面的布局资源ID//初始化视图(资源ID)。
+     * 初始化视图(资源ID)（onCreateView：CacheFragment）。
      *
-     * @return 布局资源ID
+     * @return 布局资源ID。
      */
     @Override
     protected abstract int _onCreateView();
+
     /**
-     * 绑定ViewModel
+     * 初始化视图（onCreateView：BaseFragment）。
+     */
+    @Override
+    protected final void initView(){}
+
+    /**
+     * 绑定ViewModel（onCreateView：BaseMvvmFragment）。
      */
     protected abstract void bindViewModel();
 
     /**
-     * 是否支持多状态(加载)页面。默认不支持。
+     * 懒加载(数据)（onResume：LazyFragment）。
+     */
+    @Override
+    public abstract void lazyInit();
+
+
+    /**
+     * 是否支持多状态页面，默认不支持（onCreateView：BaseFragment）。
      *
      * @return true表示支持，false表示不支持
      */
     protected boolean isSupportLoad() {
         return false;
     }
-    /**
-     * 初始化
-     */
-    protected abstract void init();
+
+
+
+
 }

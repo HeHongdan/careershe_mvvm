@@ -30,7 +30,6 @@ import org.jetbrains.annotations.NotNull;
  */
 public class App extends BaseApp {
 
-
     @Override
     public void onCreate() {
         super.onCreate();
@@ -110,7 +109,6 @@ public class App extends BaseApp {
      * 请求配置
      */
     public static void setHttpConfig() {
-
         HttpFactory.HTTP_HOST_URL = ServerAddress.getApiDefaultHost();
         HttpFactory.httpResponseInterface = (gson, response) -> {
             if (firstOpen) {

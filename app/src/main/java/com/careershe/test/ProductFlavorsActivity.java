@@ -1,4 +1,4 @@
-package com.careershe.careershe;
+package com.careershe.test;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
@@ -11,6 +11,9 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.blankj.utilcode.util.LogUtils;
 import com.bumptech.glide.Glide;
+import com.careershe.careershe.BuildConfig;
+import com.careershe.careershe.Config;
+import com.careershe.careershe.R;
 import com.careershe.deprecatedhttp.data.HttpBaseResponse;
 import com.careershe.deprecatedhttp.data.HttpDisposable;
 import com.careershe.deprecatedhttp.request.HttpFactory;
@@ -35,7 +38,7 @@ public class ProductFlavorsActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_product_flavors);
+        setContentView(R.layout.test_activity_product_flavors);
 
         mTvVersion = findViewById(R.id.tvVersion);
         mTvUseJava = findViewById(R.id.tvUseJava);

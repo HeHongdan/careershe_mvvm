@@ -2,6 +2,11 @@
 <resources>
 
     <color name="background_navigationbar_alpha">#f8111111</color>
+    <!--分割线-->
+    <color name="divide_line">#1aFFFFFF</color>
+
+
+
 
     <!--通用颜色-->
     <color name="foreground_card">#292b54</color>

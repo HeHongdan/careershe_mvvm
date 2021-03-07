@@ -5,6 +5,7 @@ import androidx.annotation.NonNull;
 
 import com.careershe.http.cache.CacheListener;
 import com.careershe.http.cache.CareersheCache;
+import com.careershe.http.response.ResponseListener;
 import com.careershe.rxhttp.core.RxLife;
 import com.careershe.rxhttp.request.RxRequest;
 import com.careershe.rxhttp.request.exception.ExceptionHandle;

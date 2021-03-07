@@ -1,4 +1,4 @@
-package com.careershe.careershe.model.splash;
+package com.careershe.careershe.model.main;
 
 import androidx.annotation.NonNull;
 import androidx.lifecycle.LifecycleOwner;
@@ -9,17 +9,11 @@ import com.blankj.utilcode.util.LogUtils;
 import com.blankj.utilcode.util.NetworkUtils;
 import com.careershe.basics.base.BaseViewModel;
 import com.careershe.common.LoadState;
-import com.careershe.deprecatedhttp.bean.ArticleListBean;
-import com.careershe.deprecatedhttp.data.HttpDisposable;
-import com.careershe.deprecatedhttp.request.HttpFactory;
-import com.careershe.deprecatedhttp.request.HttpRequest;
 import com.careershe.deprecatedhttp.request.ImageBean;
-import com.careershe.deprecatedhttp.request.ServerAddress;
 import com.careershe.http.BaseRequest;
 import com.careershe.http.CareersheApi;
 import com.careershe.http.response.ResponseListener;
 import com.careershe.http.bean.QnaListBean;
-import com.careershe.http.response.ResponseOnlySuccess_F;
 import com.careershe.rxhttp.request.exception.ExceptionHandle;
 
 /**
@@ -29,7 +23,7 @@ import com.careershe.rxhttp.request.exception.ExceptionHandle;
  * @date 2021/3/1
  * @since v2021/3/1
  */
-public class SplashViewModel  extends BaseViewModel {
+public class MainViewModel extends BaseViewModel {
 
     /** 每日图片 */
     private MutableLiveData<ImageBean> mImage;
@@ -50,7 +44,7 @@ public class SplashViewModel  extends BaseViewModel {
 
 
 
-    public SplashViewModel() {
+    public MainViewModel() {
         mImage = new MutableLiveData<>();
         qnaList = new MutableLiveData<>();
     }
@@ -59,17 +53,10 @@ public class SplashViewModel  extends BaseViewModel {
     public void onCreate(@NonNull LifecycleOwner owner) {
         super.onCreate(owner);
 
-        if (false) {
-            loadImageView();
-        } else {
-            loadData();
-        }
+        loadData();
     }
 
 
-    public LiveData<ImageBean> getImageData() {
-        return mImage;
-    }
 
     public LiveData<QnaListBean> getQnaData() {
         return qnaList;
@@ -197,42 +184,11 @@ public class SplashViewModel  extends BaseViewModel {
         }
     }
 
-    /**
-     * 获取Bing每日图片
-     */
-    public void loadImageView() {
-        if (!NetworkUtils.isConnected()) {
-            //没有网络连接
-        } else {
-            BaseRequest.netBean(mRxLife,
-                    CareersheApi.api().getImage("js", 0, 1),
-                    new ResponseOnlySuccess_F<ImageBean>() {
-                        @Override
-                        public void onSuccess(int code, ImageBean data) {
-                            LogUtils.v("请求网络成功= "+ data);
-
-                            mImage.postValue(data);
-                            url = data.getImages().get(0).getCopyrightlink();
-                        }
-
-                        @Override
-                        public void onFailed(int code, String msg) {
-                            LogUtils.e("请求网络失败= "+ code);
-
-                            mImage.postValue(null);
-                        }
-                    });
-
-        }
-    }
-
-
-
 
     /**
      * 跳转到每日图片详情界面
      */
-    public void startSplashImageDetail() {
+    public void startMainImageDetail() {
         LogUtils.d("跳转图片详情页面");
     }
 
