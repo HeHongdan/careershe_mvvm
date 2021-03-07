@@ -13,7 +13,7 @@ import com.careershe.deprecatedhttp.request.ImageBean;
 import com.careershe.http.BaseRequest;
 import com.careershe.http.CareersheApi;
 import com.careershe.http.response.ResponseListener;
-import com.careershe.http.bean.QnaListBean;
+import com.careershe.careershe.model.main.qna.bean.QnaListBean;
 import com.careershe.rxhttp.request.exception.ExceptionHandle;
 
 /**

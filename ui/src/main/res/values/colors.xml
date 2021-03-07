@@ -4,7 +4,8 @@
     <color name="background_navigationbar_alpha">#f8f5f5f5</color>
     <!--分割线-->
     <color name="divide_line">#ffEEEEEE</color>
-
+    <!--官方（单）-->
+    <color name="official">#ff4593ef</color>
 
 
 

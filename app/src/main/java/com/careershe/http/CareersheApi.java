@@ -3,7 +3,7 @@ package com.careershe.http;
 //import com.careershe.careershe.ApplicationClass;
 import com.careershe.careershe.BuildConfig;
 import com.careershe.deprecatedhttp.request.ImageBean;
-import com.careershe.http.bean.QnaListBean;
+import com.careershe.careershe.model.main.qna.bean.QnaListBean;
 import com.careershe.rxhttp.request.Api;
 //import com.careershe.careershe.QNA;
 //import com.careershe.careershe.dev2.entity.AskingBean;

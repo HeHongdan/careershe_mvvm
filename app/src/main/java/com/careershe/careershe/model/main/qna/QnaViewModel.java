@@ -4,14 +4,16 @@ import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MediatorLiveData;
 import androidx.lifecycle.MutableLiveData;
 
+import com.blankj.utilcode.util.LogUtils;
 import com.blankj.utilcode.util.NetworkUtils;
 import com.careershe.basics.base.BaseViewModel;
+import com.careershe.careershe.model.main.qna.bean.QnaBean;
+import com.careershe.careershe.model.main.qna.bean.QnaListBean;
 import com.careershe.common.LoadState;
-import com.careershe.deprecatedhttp.data.HttpDisposable;
-import com.careershe.deprecatedhttp.bean.ArticleBean;
-import com.careershe.deprecatedhttp.bean.ArticleListBean;
-import com.careershe.deprecatedhttp.request.HttpFactory;
-import com.careershe.deprecatedhttp.request.HttpRequest;
+import com.careershe.http.BaseRequest;
+import com.careershe.http.CareersheApi;
+import com.careershe.http.response.ResponseListener;
+import com.careershe.rxhttp.request.exception.ExceptionHandle;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -21,46 +23,29 @@ import java.util.List;
  */
 public class QnaViewModel extends BaseViewModel {
 
-    /**
-     * 是否为刷新数据
-     */
-    public boolean mRefresh;
-
-    private int mType = 0;
-    private int mPage = 0;
-    private int mId = 0;
-    private MutableLiveData<ArticleListBean> mArticleList;
-    private List<ArticleBean> mList;
+    private MutableLiveData<QnaListBean> mQnaLists;
+    private List<QnaBean> mQnaList;
 
     public QnaViewModel() {
-        mArticleList = new MediatorLiveData<>();
-        mList = new ArrayList<>();
+        mQnaLists = new MediatorLiveData<>();
+        mQnaList = new ArrayList<>();
     }
 
-    public void setType(int type) {
-        this.mType = type;
+    public LiveData<QnaListBean> getQnaList() {
+        return mQnaLists;
     }
-
-    public void setId(int id) {
-        this.mId = id;
-    }
-
-    public LiveData<ArticleListBean> getArticleList() {
-        return mArticleList;
-    }
-
 
     /**
      * 刷新
      */
     public void refreshData(Boolean refresh) {
         if (refresh) {
-            mPage = 0;
+            currPage = START_PAGE;
         } else {
-            mPage++;
+            currPage++;
         }
         mRefresh = true;
-        loadArticleList();
+        loadQnaList();
     }
 
 
@@ -79,56 +64,50 @@ public class QnaViewModel extends BaseViewModel {
     public void loadData() {
         loadState.postValue(LoadState.LOADING);
 
-        mPage = 0;
+        currPage = 0;
         mRefresh = false;
-        loadArticleList();
+        loadQnaList();
     }
 
 
     /**
      * 加载文章列表
      */
-    private void loadArticleList() {
+    private void loadQnaList() {
         //判断网络
         if (!NetworkUtils.isConnected()) {
             loadState.postValue(LoadState.NO_NETWORK);
             return;
         }
 
-        if (mType == 0) {
-            loadWeChatArticleList();
-        } else if (mType == 1){
-            loadSystemArticleList();
-        }else {
-            loadProjectArticleList();
-        }
+        loadWeChatArticleList();
     }
 
     /**
      * 加载微信公众号数据
      */
     private void loadWeChatArticleList() {
-        //微信公众号的页码是从1开始的
-        mPage++;
-        HttpRequest.getInstance()
-                .getWechatArticleList(mId, mPage)
-                .compose(HttpFactory.<ArticleListBean>schedulers())
-                .subscribe(new HttpDisposable<ArticleListBean>() {
+        BaseRequest.netBean(mRxLife,
+                CareersheApi.api().getAskingListNew(ONE_PAGE_COUNT, currPage),
+                new ResponseListener<QnaListBean>() {
                     @Override
-                    public void success(ArticleListBean mArticleListBean) {
+                    public void onSuccess(int code, QnaListBean data) {
+                        LogUtils.d(code + "问答列表= " + data);
 
-                        if (mArticleListBean != null) {
-                            loadState.postValue(LoadState.SUCCESS);
-                            if (mPage == 1) {
+                        if (data.getPageResult() != null) {
+                            currPage = data.getPageResult().getCurPage();
+                            LogUtils.d("职业百科，当前页数，后台返回= " + data.getPageResult().toString());
+
+                            if (currPage == START_PAGE) {
                                 //第一次加载或刷新成功//清空列表，重新载入数据，设置刷新成功状态
-                                mList.clear();
-                                mList.addAll(mArticleListBean.getDatas());
-                                mArticleList.postValue(mArticleListBean);
+                                mQnaList.clear();
+                                mQnaList.addAll(data.getResult());
+                                mQnaLists.postValue(data);
                             } else {
                                 //下拉加载更多成功//添加数据，设置下拉加载成功状态
-                                mList.addAll(mArticleListBean.getDatas());
-                                mArticleListBean.setDatas(mList);
-                                mArticleList.postValue(mArticleListBean);
+                                mQnaList.addAll(data.getResult());
+//                                data.setResult(mQnaList);
+                                mQnaLists.postValue(data);
                             }
                         } else {
                             loadState.postValue(LoadState.NO_DATA);
@@ -136,85 +115,29 @@ public class QnaViewModel extends BaseViewModel {
                     }
 
                     @Override
-                    public void onError(Throwable e) {
-                        loadState.postValue(LoadState.ERROR);
+                    public void onFailed(int code, String msg) {
+
+                    }
+
+                    @Override
+                    public void onStart() {
+//                        isRefreshedQnaList = false;
+                    }
+
+
+                    @Override
+                    public void onError(ExceptionHandle handle) {
+
+                    }
+
+                    @Override
+                    public void onFinish() {
+//                        isRefreshedQnaList = true;
+//                        getNetFinish();
                     }
                 });
     }
 
-    /**
-     * 加载体系文章数据
-     */
-    private void loadSystemArticleList() {
 
-        HttpRequest.getInstance()
-                .getSystemArticle(mPage, mId)
-                .compose(HttpFactory.<ArticleListBean>schedulers())
-                .subscribe(new HttpDisposable<ArticleListBean>() {
-                    @Override
-                    public void success(ArticleListBean mArticleListBean) {
 
-                        if (mArticleListBean != null) {
-                            loadState.postValue(LoadState.SUCCESS);
-                            if (mPage == 0) {
-                                //第一次加载或刷新成功//清空列表，重新载入数据，设置刷新成功状态
-                                mList.clear();
-                                mList.addAll(mArticleListBean.getDatas());
-                                mArticleList.postValue(mArticleListBean);
-                            } else {
-                                //下拉加载更多成功//添加数据，设置下拉加载成功状态
-                                mList.addAll(mArticleListBean.getDatas());
-                                mArticleListBean.setDatas(mList);
-                                mArticleList.postValue(mArticleListBean);
-                            }
-                        } else {
-                            loadState.postValue(LoadState.NO_DATA);
-                        }
-                    }
-
-                    @Override
-                    public void onError(Throwable e) {
-                        loadState.postValue(LoadState.ERROR);
-                    }
-                });
-    }
-
-    /**
-     * 加载项目文章数据
-     */
-    private void loadProjectArticleList() {
-        mPage++;
-
-        HttpRequest.getInstance()
-                .getProjectArticle(mPage, mId)
-                .compose(HttpFactory.<ArticleListBean>schedulers())
-                .subscribe(new HttpDisposable<ArticleListBean>() {
-                    @Override
-                    public void success(ArticleListBean mArticleListBean) {
-
-                        if (mArticleListBean != null) {
-                            loadState.postValue(LoadState.SUCCESS);
-
-                            if (mPage == 1) {
-                                //第一次加载或刷新成功//清空列表，重新载入数据，设置刷新成功状态
-                                mList.clear();
-                                mList.addAll(mArticleListBean.getDatas());
-                                mArticleList.postValue(mArticleListBean);
-                            } else {
-                                //下拉加载更多成功//添加数据，设置下拉加载成功状态
-                                mList.addAll(mArticleListBean.getDatas());
-                                mArticleListBean.setDatas(mList);
-                                mArticleList.postValue(mArticleListBean);
-                            }
-                        } else {
-                            loadState.postValue(LoadState.NO_DATA);
-                        }
-                    }
-
-                    @Override
-                    public void onError(Throwable e) {
-                        loadState.postValue(LoadState.ERROR);
-                    }
-                });
-    }
 }

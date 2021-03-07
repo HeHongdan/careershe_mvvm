@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+
+    tools:context=".model.main.qna.QnaFragment">
 
     <data>
         <variable
@@ -12,29 +15,54 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <com.scwang.smart.refresh.layout.SmartRefreshLayout
-            android:id="@+id/refresh_layout"
+        <com.hehongdan.actionbarex.ActionBarEx
+            android:id="@+id/ab"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            app:srlEnableLoadMore="true">
-
-            <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/recycle"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent" />
-        </com.scwang.smart.refresh.layout.SmartRefreshLayout>
-
-
-        <TextView
-            android:id="@+id/tv_test"
-            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="你好"
-            android:textSize="@dimen/sp_30"
-            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
+
+        <com.scwang.smart.refresh.layout.SmartRefreshLayout
+            android:id="@+id/srl"
+
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp_0"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/ab"
+
+            android:clipChildren="true"
+            android:clipToPadding="true"
+
+            app:srlDragRate="0.5"
+            app:srlEnableAutoLoadMore="false"
+            app:srlHeaderHeight="@dimen/dp_72"
+            app:srlHeaderMaxDragRate="2"
+            app:srlHeaderTriggerRate="0.6"
+
+            app:srlEnableLoadMore="false">
+
+            <pl.droidsonroids.gif.GifImageView
+                android:id="@+id/giv_"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dp_60"
+                android:scaleType="fitCenter"
+                android:src="@mipmap/gif_header_repast_careershe"
+                app:layout_srlBackgroundColor="@android:color/transparent"
+                app:layout_srlSpinnerStyle="Scale" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rv"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:clipToPadding="false"
+                android:overScrollMode="never"
+
+                tools:listitem="@layout/item_rv_qna"
+                />
+        </com.scwang.smart.refresh.layout.SmartRefreshLayout>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

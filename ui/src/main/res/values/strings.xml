@@ -4,4 +4,11 @@
     <string name="du_adjust_tips">拖动按钮以调整窗口的高度。</string>
     <string name="de_permission_tips">请授权「显示在其他应用上层」的权限。</string>
     <string name="du_app_info">API列表</string>
+
+
+    <!--底部加载更多-->
+    <string name="have_more_">还有更多哦</string>
+    <string name="no_more_">已经到底啦</string>
+    <string name="loading_">正在加载...</string>
+    <string name="load_failed_">加载失败，点击重试</string>
 </resources>

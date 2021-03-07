@@ -9,16 +9,11 @@ import com.blankj.utilcode.util.LogUtils;
 import com.blankj.utilcode.util.NetworkUtils;
 import com.careershe.basics.base.BaseViewModel;
 import com.careershe.common.LoadState;
-import com.careershe.deprecatedhttp.bean.ArticleListBean;
-import com.careershe.deprecatedhttp.data.HttpDisposable;
-import com.careershe.deprecatedhttp.request.HttpFactory;
-import com.careershe.deprecatedhttp.request.HttpRequest;
 import com.careershe.deprecatedhttp.request.ImageBean;
-import com.careershe.deprecatedhttp.request.ServerAddress;
 import com.careershe.http.BaseRequest;
 import com.careershe.http.CareersheApi;
 import com.careershe.http.response.ResponseListener;
-import com.careershe.http.bean.QnaListBean;
+import com.careershe.careershe.model.main.qna.bean.QnaListBean;
 import com.careershe.http.response.ResponseOnlySuccess_F;
 import com.careershe.rxhttp.request.exception.ExceptionHandle;
 

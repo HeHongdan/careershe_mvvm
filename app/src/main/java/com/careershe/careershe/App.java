@@ -16,7 +16,7 @@ import com.careershe.deprecatedhttp.data.HttpBaseResponse;
 import com.careershe.deprecatedhttp.request.HttpFactory;
 import com.careershe.deprecatedhttp.request.ServerAddress;
 import com.careershe.deprecatedhttp.tool.HttpException;
-import com.careershe.ui.ui.floatview.debug.DebugIcon;
+import com.careershe.ui.widget.floatview.debug.DebugIcon;
 
 import org.jetbrains.annotations.NotNull;
 

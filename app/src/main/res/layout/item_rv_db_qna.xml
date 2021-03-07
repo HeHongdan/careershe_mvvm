@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="utf-8"?><!--我的-收藏-->
+
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+
+    tools:context=".model.main.qna.QnaFragment">
+
+    <data>
+        <variable
+            name="qna"
+            type="com.careershe.careershe.model.main.qna.bean.QnaBean" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/cl_qna"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/foreground"
+        android:gravity="center">
+
+
+        <!--
+        app:url="@{qna.image}"
+        -->
+        <com.makeramen.roundedimageview.RoundedImageView
+            android:id="@+id/riv_questionUser"
+
+            android:layout_width="@dimen/dp_34"
+            android:layout_height="@dimen/dp_34"
+            android:layout_marginStart="@dimen/dp_12"
+            android:layout_marginTop="@dimen/dp_12"
+            android:scaleType="fitXY"
+
+            android:src="@drawable/ic_avatar"
+
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:riv_border_color="@color/invert_alpha"
+            app:riv_border_width="@dimen/dp_0"
+            app:riv_corner_radius="@dimen/dp_44"
+            app:riv_mutate_background="true"
+
+            tools:src="@drawable/ic_avatar"
+            tools:visibility="visible" />
+
+        <com.makeramen.roundedimageview.RoundedImageView
+            android:id="@+id/riv_vip"
+            android:layout_width="@dimen/dp_16"
+            android:layout_height="@dimen/dp_16"
+            android:layout_marginLeft="@dimen/dp_25"
+            android:layout_marginTop="@dimen/dp_22"
+            android:scaleType="centerCrop"
+            android:src="@{qna.askingCheckOfficial == 1 ? (qna.askingCheckOfficial == 2 ? @drawable/ic_badge_vip : @drawable/official_badge) : null}"
+
+            app:layout_constraintStart_toStartOf="@+id/riv_questionUser"
+            app:layout_constraintTop_toTopOf="@+id/riv_questionUser" />
+
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tv_questionUser"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/dp_10"
+            android:background="?android:attr/selectableItemBackground"
+            android:text="@{qna.username}"
+            android:textColor="@color/text_surface"
+            android:textSize="@dimen/sp_14"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="@+id/riv_questionUser"
+
+            app:layout_constraintStart_toEndOf="@+id/riv_questionUser"
+            app:layout_constraintTop_toTopOf="@+id/riv_questionUser"
+
+            tools:text="提问用户"
+            tools:visibility="visible" />
+
+
+        <TextView
+            android:id="@+id/tv_question"
+            android:layout_width="@dimen/dp_307"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/dp_10"
+            android:layout_marginTop="@dimen/dp_8"
+            android:layout_marginEnd="@dimen/dp_12"
+            android:ellipsize="end"
+            android:maxLines="3"
+            android:text="@{qna.askingName}"
+            android:textColor="@color/text_surface"
+            android:textSize="@dimen/sp_16"
+
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toEndOf="@+id/riv_questionUser"
+            app:layout_constraintTop_toBottomOf="@+id/riv_questionUser"
+
+            tools:layout_width="0dp"
+            tools:text="跨境电子商务这个专业怎么样，有没有人了解过？" />
+
+        <!--
+        <com.careershe.common.widget.expandabletextview.ExpandableTextView
+        app:ep_max_line="3"
+        app:ep_need_expand="false"
+        app:ep_self_color="@color/official"-->
+        <TextView
+            android:id="@+id/tv_answer"
+            android:layout_width="@dimen/dp_307"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dp_12"
+            android:layout_marginEnd="@dimen/dp_12"
+            android:background="@drawable/bg_qna_answer"
+            android:ellipsize="end"
+            android:maxLines="3"
+            android:padding="@dimen/dp_12"
+            android:text="@{qna.answerVo.answerText}"
+            android:textColor="@color/text_surface"
+            android:textSize="@dimen/sp_14"
+
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/tv_question"
+            app:layout_constraintTop_toBottomOf="@+id/tv_question"
+
+            tools:layout_width="0dp"
+            tools:text="千职鹤—湫老师：主要面向跨境电子商务应用企业，从事跨境电子商务平台运营、视觉设计、跨境电子商务网络营销与活动策划、跨境电子商务网络营销与活动策划、跨" />
+
+
+        <LinearLayout
+            android:id="@+id/ll_tag"
+            android:layout_width="@dimen/dp_255"
+            android:layout_height="@dimen/dp_24"
+            android:layout_marginTop="@dimen/dp_12"
+            android:layout_marginBottom="@dimen/dp_12"
+            android:orientation="horizontal"
+
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/tv_question"
+            app:layout_constraintTop_toBottomOf="@+id/tv_answer"
+            app:layout_constraintVertical_bias="1"
+
+            tools:background="#3333" />
+
+        <ImageView
+            android:id="@+id/iv_answer"
+            android:layout_width="@dimen/dp_20"
+            android:layout_height="@dimen/dp_20"
+            android:layout_marginEnd="@dimen/dp_4"
+
+            android:adjustViewBounds="true"
+            android:scaleType="fitCenter"
+            android:src="@drawable/ic_comment_list"
+
+            app:layout_constraintBottom_toBottomOf="@+id/tv_answerCount"
+            app:layout_constraintEnd_toStartOf="@+id/tv_answerCount"
+            app:layout_constraintTop_toTopOf="@+id/tv_answerCount" />
+
+
+        <TextView
+            android:id="@+id/tv_answerCount"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/dp_12"
+
+            android:maxLength="4"
+            android:text="@{qna.answerVo.answerCount}"
+            android:textColor="@color/text_second"
+            android:textSize="@dimen/sp_14"
+            app:layout_constraintBottom_toBottomOf="@+id/ll_tag"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/ll_tag"
+            tools:text="99+" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

@@ -83,7 +83,14 @@ dependencies {
     api  'com.scwang.smart:refresh-layout-kernel:2.0.3'
     /** 下拉刷新：经典头部 */
     api  'com.scwang.smart:refresh-header-classics:2.0.3'
-    /** 卡片布局 */
-    api 'androidx.cardview:cardview:1.0.0'
-    api "androidx.viewpager2:viewpager2:1.1.0-alpha01"
+//    /** 卡片布局 */
+//    api 'androidx.cardview:cardview:1.0.0'
+//    api "androidx.viewpager2:viewpager2:1.1.0-alpha01"
+    /** GIf */
+    api 'pl.droidsonroids.gif:android-gif-drawable:1.2.22'
+    /** 圆形图片(头像) */
+    api 'com.makeramen:roundedimageview:2.3.0'
+    /** 简易的RV的适配器。2.9.50 */
+    api 'com.github.CymChad:BaseRecyclerViewAdapterHelper:' + rootProject.ext.dependencieVersions.BaseRecyclerViewAdapterHelper
+
 }

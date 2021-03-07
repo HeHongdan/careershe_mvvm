@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+
+    android:width="375dp"
+    android:height="0.5dp"
+
+    tools:context=".dev2.module_mvc.main.QnaFragment">
+
+    <!--(渐变)-->
+    <item
+        android:width="307dp"
+        android:height="0.5dp"
+
+        android:left="56dp"
+        android:right="12dp"
+        android:top="0dp"
+        >
+
+        <shape>
+            <gradient
+                android:angle="270"
+                android:startColor="@color/divide_line"
+                android:endColor="@color/divide_line"
+                android:type="linear"
+                android:useLevel="false" />
+        </shape>
+    </item>
+
+    <!--(左边)-->
+    <item
+        android:width="56dp"
+        android:height="0.5dp"
+
+        android:left="0dp"
+        android:top="0dp"
+        >
+
+        <shape>
+            <gradient
+                android:angle="270"
+                android:startColor="@color/foreground"
+                android:endColor="@color/foreground"
+                android:type="linear"
+                android:useLevel="false" />
+        </shape>
+    </item>
+
+    <!--(左边)-->
+    <item
+        android:width="12dp"
+        android:height="0.5dp"
+
+        android:left="363dp"
+        android:top="0dp"
+        >
+
+        <shape>
+            <gradient
+                android:angle="270"
+                android:startColor="@color/foreground"
+                android:endColor="@color/foreground"
+                android:type="linear"
+                android:useLevel="false" />
+        </shape>
+    </item>
+
+
+</layer-list>

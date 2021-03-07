@@ -22,6 +22,14 @@ import com.careershe.rxhttp.core.RxLife;
  * @since v2021/1/31
  */
 public abstract class BaseViewModel extends ViewModel implements DefaultLifecycleObserver {
+    /** 默认一页到条数。 */
+    public int ONE_PAGE_COUNT = 10;
+    /** 开始的页数。 */
+    public int START_PAGE = 0;
+    /** 是否为刷新数据。 */
+    public boolean mRefresh;
+    /** 当前页面。 */
+    public int currPage = START_PAGE;
 
     /** 管理网络请求生命周期。 */
     protected RxLife mRxLife;

@@ -57,7 +57,7 @@
          .msgPointTop(-10)
          .msgPointTextSize(11)
         -->
-        <com.careershe.ui.ui.enb.EasyNavigationBar
+        <com.careershe.ui.widget.enb.EasyNavigationBar
             android:id="@+id/enb"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
@@ -78,7 +78,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent">
 
-        </com.careershe.ui.ui.enb.EasyNavigationBar>
+        </com.careershe.ui.widget.enb.EasyNavigationBar>
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,26 @@
+package com.careershe.ui.widget.mkitemdecoration;
+
+import android.content.Context;
+
+import androidx.annotation.LayoutRes;
+
+import java.util.List;
+
+/**
+ * Created by @author zhoulong
+ * on 2017-10-10.
+ * # Copyright 2017 . All rights reserved.
+ */
+
+public abstract class AbstractViewModel<T> {
+
+	public List<T> data;
+	int layoutId;
+
+	public AbstractViewModel(Context context, List<T> data, @LayoutRes int resId) {
+		this.data = data;
+		this.layoutId = resId;
+	}
+
+	public abstract void bindView(MKItemDecoration.VHolder view, int position);
+}
