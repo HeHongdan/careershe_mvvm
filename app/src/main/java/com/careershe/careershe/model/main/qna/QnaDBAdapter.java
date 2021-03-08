@@ -147,7 +147,7 @@ public class QnaDBAdapter extends BaseQuickAdapter<QnaBean, BaseDataBindingHolde
 	/**
 	 * 获取宿主Activity。
 	 *
-	 * @return ProfessionMainActivity__。
+	 * @return {@link MainActivity}。
 	 */
 	private MainActivity getMainActivity() {
 		if (getContext() instanceof MainActivity) {

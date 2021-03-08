@@ -3,19 +3,19 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <!--
-    <item name="android:statusBarColor">@color/main</item>
-    <item name="android:navigationBarColor">@color/mainDark</item>
-      <item name="android:colorForeground">@color/foreground</item>
-    <item name="android:colorBackground">@color/background</item>
-    <item name="colorControlNormal">@color/assist</item>
-    <item name="colorControlHighlight">@color/mainDark</item>
-    <item name="colorControlActivated">@color/main</item>
-    <item name="colorButtonNormal">@color/second</item>
-    <item name="editTextColor">@color/text_surface</item>
-    <item name="textColor">@color/text_surface</item>
-    <item name="textColorPrimary">@color/text_surface</item>
-    <item name="textColorPrimary">@color/text_surface</item>
-    <item name="colorSwitchThumbNormal">@color/second</item>
+    <banner_c_item name="android:statusBarColor">@color/main</banner_c_item>
+    <banner_c_item name="android:navigationBarColor">@color/mainDark</banner_c_item>
+      <banner_c_item name="android:colorForeground">@color/foreground</banner_c_item>
+    <banner_c_item name="android:colorBackground">@color/background</banner_c_item>
+    <banner_c_item name="colorControlNormal">@color/assist</banner_c_item>
+    <banner_c_item name="colorControlHighlight">@color/mainDark</banner_c_item>
+    <banner_c_item name="colorControlActivated">@color/main</banner_c_item>
+    <banner_c_item name="colorButtonNormal">@color/second</banner_c_item>
+    <banner_c_item name="editTextColor">@color/text_surface</banner_c_item>
+    <banner_c_item name="textColor">@color/text_surface</banner_c_item>
+    <banner_c_item name="textColorPrimary">@color/text_surface</banner_c_item>
+    <banner_c_item name="textColorPrimary">@color/text_surface</banner_c_item>
+    <banner_c_item name="colorSwitchThumbNormal">@color/second</banner_c_item>
     -->
     <style name="AppTheme.Dev2" parent="AppTheme">
         <item name="colorPrimary">@color/main</item>
@@ -39,13 +39,13 @@
 
     <style name="AppTheme.Splash" parent="AppTheme">
         <!--无标题-->
-        <!--        <item name="android:windowNoTitle">true</item>-->
+        <!--        <banner_c_item name="android:windowNoTitle">true</banner_c_item>-->
         <!--无ActionBar-->
-        <!--        <item name="android:windowActionBar">false</item>-->
+        <!--        <banner_c_item name="android:windowActionBar">false</banner_c_item>-->
         <!--全屏即无通知栏-->
-        <!--        <item name="android:windowFullscreen">true</item>-->
+        <!--        <banner_c_item name="android:windowFullscreen">true</banner_c_item>-->
         <!--是否有遮盖-->
-        <!--        <item name="android:windowContentOverlay">@null</item>-->
+        <!--        <banner_c_item name="android:windowContentOverlay">@null</banner_c_item>-->
         <!--默认背景-->
         <item name="android:windowBackground">@drawable/bg_splash</item>
     </style>
