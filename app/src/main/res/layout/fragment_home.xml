@@ -58,7 +58,8 @@
             <pl.droidsonroids.gif.GifImageView
                 android:id="@+id/giv_"
                 android:layout_width="match_parent"
-                android:layout_height="@dimen/dp_60"
+                android:layout_height="@dimen/dp_55"
+                android:layout_marginTop="@dimen/dp_12"
                 android:scaleType="fitCenter"
                 android:src="@mipmap/gif_header_repast_careershe"
                 app:layout_srlBackgroundColor="@android:color/transparent"

@@ -6,8 +6,9 @@
     android:layout_width="match_parent"
     android:layout_height="120dp"
     android:layout_gravity="center"
-    android:layout_marginLeft="5dp"
-    android:layout_marginRight="5dp"
+    android:layout_marginStart="12dp"
+    android:layout_marginEnd="12dp"
+    android:layout_marginBottom="12dp"
     android:foreground="?android:attr/selectableItemBackground"
     android:background="@color/main"
     android:orientation="horizontal">

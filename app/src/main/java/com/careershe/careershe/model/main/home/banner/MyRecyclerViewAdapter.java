@@ -51,7 +51,7 @@ public class MyRecyclerViewAdapter extends RecyclerView.Adapter {
         if (holder instanceof MyBannerViewHolder) {
             Banner banner = ((MyBannerViewHolder) holder).banner;
             banner.setAdapter(new ImageNetAdapter(DataBean.getTestData3()));
-//            banner.setBannerRound(ConvertUtils.dp2px(getContext(), 4));
+            banner.setBannerRound(ConvertUtils.dp2px(getContext(), 8));
 //            banner.setIndicator(new RoundLinesIndicator(context));
             banner.setIndicator(new RectangleIndicator(context));
             banner.setOnBannerListener(new OnBannerListener() {
