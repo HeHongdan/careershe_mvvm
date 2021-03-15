@@ -64,14 +64,14 @@
                 app:layout_srlBackgroundColor="@android:color/transparent"
                 app:layout_srlSpinnerStyle="Scale" />
 
-            <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/rv"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:clipToPadding="false"
-                android:overScrollMode="never"
+            <com.careershe.ui.widget.DcTextViewRunNumber
+                android:id="@+id/numberRunView"
 
-                tools:listitem="@layout/item_rv_qna"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="123"
+                android:gravity="center"
+                android:textSize="@dimen/sp_48"
                 />
         </com.scwang.smart.refresh.layout.SmartRefreshLayout>
 

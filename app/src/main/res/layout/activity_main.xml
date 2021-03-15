@@ -48,30 +48,26 @@
 
 
         <!--
-        app:Easy_msgPointSize="@dimen/dp_16"
-        app:Easy_tabTextTop="@dimen/dp_3"
-        app:Easy_tabTextSize="@dimen/sp_10"
-        app:Easy_msgPointTextSize="@dimen/sp_11"
-
-         .hintPointTop(-3)
-         .msgPointTop(-10)
-         .msgPointTextSize(11)
+        app:Easy_msgPointLeft="@dimen/dp_m_5"
         -->
         <com.careershe.ui.widget.enb.EasyNavigationBar
             android:id="@+id/enb"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
 
+            app:Easy_hintPointTop="@dimen/dp_m_5"
+            app:Easy_tabTextTop="@dimen/dp_3"
+            app:Easy_tabTextSize="@dimen/dp_10"
+            app:Easy_msgPointSize="@dimen/dp_16"
             app:Easy_navigationHeight="@dimen/dp_50"
             app:Easy_lineHeight="@dimen/dp_1"
             app:Easy_lineColor="@color/divide_line"
-
-            app:Easy_msgPointTop="@dimen/dp_m_10"
             app:Easy_hintPointSize="@dimen/dp_9"
             app:Easy_msgPointMoreWidth="@dimen/dp_24"
             app:Easy_tabIconSize="@dimen/dp_20"
             app:Easy_tabNormalColor="@color/text_fourth"
             app:Easy_tabSelectColor="@color/main"
+            app:Easy_navigationBackground="@color/foreground"
 
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"

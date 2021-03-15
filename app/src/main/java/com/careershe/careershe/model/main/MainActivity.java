@@ -102,15 +102,10 @@ public class MainActivity extends BaseMvvmActivity<ActivityMainBinding, MainView
             }
         });
 
-
-
         fragments.add(HomeFragment.create());
         fragments.add(QnaFragment.create());
         fragments.add(K2NavigationFragment.create());
         fragments.add(MeFragment.create());
-
-
-
 
         enb = mDataBinding.enb;
         enb.titleItems(tabText)
@@ -118,14 +113,25 @@ public class MainActivity extends BaseMvvmActivity<ActivityMainBinding, MainView
                 .selectIconItems(selectIcon)
                 .fragmentList(fragments)
                 .fragmentManager(getSupportFragmentManager())
-                .smoothScroll(false)  //点击Tab  Viewpager切换是否有动画
-                .canScroll(false)    //Viewpager能否左右滑动
-                .hasPadding(true)    //false=ViewPager布局和导航栏有重叠
-
 //                .mode(EasyNavigationBar.NavigationMode.MODE_ADD)
+                .tabTextSize(10)
+                .msgPointTextSize(10)
+                .setMsgPointMoreRadius(16)
+
+                .setOnTabLoadListener(new EasyNavigationBar.OnTabLoadListener() { //Tab加载完毕回调
+                    @Override
+                    public void onTabLoadCompleteEvent() {
+                        mDataBinding.enb.setMsgPointCount(TAB_INDEX, 123);
+                        mDataBinding.enb.setHintPoint(TAB_QNA, true);
+                        mDataBinding.enb.selectTab(tabPosition, false);
+                    }
+                })
                 .setOnTabClickListener(new EasyNavigationBar.OnTabClickListener() {
                     @Override
                     public boolean onTabSelectEvent(View view, int position) {
+
+                        LogUtils.d("未读消息文本大小= "+enb.getMsgPointLeft());
+
                         if (position == 4) {
                             Toast.makeText(MainActivity.this, "请先登录", Toast.LENGTH_SHORT).show();
                             //return true则拦截事件、不进行页面切换
@@ -139,34 +145,6 @@ public class MainActivity extends BaseMvvmActivity<ActivityMainBinding, MainView
                         return false;
                     }
 
-                })
-
-                .navigationBackground(ContextCompat.getColor(this, R.color.foreground))
-
-//                .iconSize(20)     //Tab图标大小
-                .tabTextSize(10)   //Tab文字大小
-                .tabTextTop(3)     //Tab文字距Tab图标的距离
-                .normalTextColor(ContextCompat.getColor(this, R.color.third))   //Tab未选中时字体颜色
-                .selectTextColor(ContextCompat.getColor(this, R.color.main))   //Tab选中时字体颜色
-
-                .hintPointTop(-3)
-
-//                .hintPointLeft(-3)  //调节提示红点的位置hintPointLeft hintPointTop（看文档说明）
-//                .msgPointLeft(-10)  //调节数字消息的位置msgPointLeft msgPointTop（看文档说明）
-//                .hintPointSize(9)    //提示红点的大小
-                .msgPointTextSize(10)  //数字消息中字体大小
-                .msgPointSize(16)    //数字消息红色背景的大小
-                .setMsgPointMoreRadius(16)
-//                .setMsgPointMoreWidth(24)
-
-
-                .setOnTabLoadListener(new EasyNavigationBar.OnTabLoadListener() { //Tab加载完毕回调
-                    @Override
-                    public void onTabLoadCompleteEvent() {
-                        mDataBinding.enb.setMsgPointCount(TAB_INDEX, 123);
-                        mDataBinding.enb.setHintPoint(TAB_QNA, true);
-                        mDataBinding.enb.selectTab(tabPosition, false);
-                    }
                 })
 //                .setupWithViewPager(vp)
 
