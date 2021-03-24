@@ -328,6 +328,11 @@ public class ActionBarEx extends FrameLayout {
         mStatusBarMode = statusBarMode;
     }
 
+    public void setStatusBarModeNow(@StatusBarMode int statusBarMode) {
+        mStatusBarMode = statusBarMode;
+        refreshStatusBarMode();
+    }
+
     public void setStatusBarColor(@ColorInt int statusBarColor) {
         mStatusBarColor = statusBarColor;
     }
