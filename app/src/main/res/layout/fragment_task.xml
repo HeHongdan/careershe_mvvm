@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+
+    tools:context=".model.main.qna.QnaFragment">
+
+    <data>
+        <variable
+            name="viewModel"
+            type="com.careershe.careershe.model.main.task.TaskViewModel" />
+    </data>
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/background"
+        android:orientation="vertical"
+        >
+
+        <com.careershe.careershe.widget.actionbar.ActionBar
+            android:id="@+id/ab"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+
+            app:ab_backgroundLayerImageRes="@drawable/widget_bg_actionbar_white"
+            app:leftIconClickToFinish="true"
+            app:leftIconRes="@drawable/ic_back"
+            app:rightIconRes="@drawable/ic_unstar"
+            app:titleText="任务"
+
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+
+            tools:layout_height="@dimen/actionbar_icon_size_def"
+            tools:background="#3333" />
+
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/ab"
+
+            app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+            tools:orientation="horizontal"
+            tools:listitem="@layout/item_rv_school"
+            />
+
+    </androidx.constraintlayout.widget.ConstraintLayout >
+
+</layout>

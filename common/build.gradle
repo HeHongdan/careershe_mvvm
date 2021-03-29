@@ -35,5 +35,8 @@ dependencies {
     api 'androidx.appcompat:appcompat:'+ rootProject.ext.dependencieVersions.appcompat
 
     /** 工具库。 */
-    api 'com.blankj:utilcodex:'+ rootProject.ext.dependencieVersions.utilcodex
+    api 'com.blankj:utilcodex:' + rootProject.ext.dependencieVersions.utilcodex
+    /** getSet。 */
+    api "org.projectlombok:lombok:1.18.8"
+    annotationProcessor 'org.projectlombok:lombok:1.18.8'
 }

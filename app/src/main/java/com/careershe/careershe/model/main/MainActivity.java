@@ -5,7 +5,6 @@ import android.view.View;
 import android.widget.Toast;
 
 import androidx.annotation.Nullable;
-import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 
@@ -13,9 +12,9 @@ import com.blankj.utilcode.util.LogUtils;
 import com.careershe.basics.base.BaseMvvmActivity;
 import com.careershe.careershe.R;
 import com.careershe.careershe.databinding.ActivityMainBinding;
-import com.careershe.careershe.model.K2NavigationFragment;
 import com.careershe.careershe.model.main.home.HomeFragment;
 import com.careershe.careershe.model.main.me.MeFragment;
+import com.careershe.careershe.model.main.task.TaskFragment;
 import com.careershe.ui.widget.enb.EasyNavigationBar;
 import com.careershe.careershe.model.main.qna.QnaFragment;
 import com.careershe.common.fragment.utils.dapter.MultiFragmentPagerAdapter_;
@@ -104,7 +103,7 @@ public class MainActivity extends BaseMvvmActivity<ActivityMainBinding, MainView
 
         fragments.add(HomeFragment.create());
         fragments.add(QnaFragment.create());
-        fragments.add(K2NavigationFragment.create());
+        fragments.add(TaskFragment.create());
         fragments.add(MeFragment.create());
 
         enb = mDataBinding.enb;
