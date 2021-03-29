@@ -8,6 +8,7 @@ import com.blankj.utilcode.util.LogUtils;
 import com.careershe.basics.base.BaseMvvmFragment;
 import com.careershe.careershe.R;
 import com.careershe.careershe.databinding.FragmentTaskBinding;
+import com.careershe.careershe.model.main.task.decoration.GridSpaceItemDecoration;
 import com.careershe.careershe.widget.actionbar.ActionBar;
 import com.careershe.ui.screenmatch.utils.ConvertUtils;
 
@@ -56,13 +57,24 @@ public class TaskFragment extends BaseMvvmFragment<FragmentTaskBinding, TaskView
         GridLayoutManager manager = new GridLayoutManager(getContext(), spanCount);
 
         if (true) {
-            mDataBinding.rv.addItemDecoration(new GridItemDecoration(spanCount, ConvertUtils.dp2px(getContext(),12)));
+            if (true){
+                //TODO 1
+                mDataBinding.rv.addItemDecoration(new GridSpaceItemDecoration(ConvertUtils.dp2px(getContext(), 12), true));
+            } else {
+                if (true) {
+                    mDataBinding.rv.addItemDecoration(new GridSectionAverageGapItemDecoration(10, 10, 20, 15));
+                } else {
+                    //TODO 2
+                    mDataBinding.rv.addItemDecoration(new GridItemDecoration(spanCount, ConvertUtils.dp2px(getContext(), 12)));
+                }
+            }
         } else {
             mDataBinding.rv.addItemDecoration(new GridDividerItemDecoration(getContext(),
                     ConvertUtils.dp2px(getContext(), 12f), ConvertUtils.dp2px(getContext(), 12f),
                     true, true,
                     ContextCompat.getColor(getContext(), R.color.main)));
         }
+
         mDataBinding.rv.setLayoutManager(manager);
         mDataBinding.rv.setAdapter(adapter);
     }
