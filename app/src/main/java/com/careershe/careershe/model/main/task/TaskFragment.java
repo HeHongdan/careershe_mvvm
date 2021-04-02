@@ -22,11 +22,6 @@ import java.util.List;
  */
 public class TaskFragment extends BaseMvvmFragment<FragmentTaskBinding, TaskViewModel> {
 
-//    @BindView(R.id.ab)
-    ActionBar ab;
-
-    private SchoolAdapter adapter = new SchoolAdapter();
-
     public static TaskFragment create() {
         return new TaskFragment();
     }
@@ -51,42 +46,8 @@ public class TaskFragment extends BaseMvvmFragment<FragmentTaskBinding, TaskView
     public void lazyInit() {
         LogUtils.e("懒加载");
 
-        final int spanCount = 3;
-
-        adapter.setList(genData());
-        GridLayoutManager manager = new GridLayoutManager(getContext(), spanCount);
-
-        if (true) {
-            if (true){
-                //TODO 1
-                mDataBinding.rv.addItemDecoration(new GridSpaceItemDecoration(ConvertUtils.dp2px(getContext(), 12), true));
-            } else {
-                if (true) {
-                    mDataBinding.rv.addItemDecoration(new GridSectionAverageGapItemDecoration(10, 10, 20, 15));
-                } else {
-                    //TODO 2
-                    mDataBinding.rv.addItemDecoration(new GridItemDecoration(spanCount, ConvertUtils.dp2px(getContext(), 12)));
-                }
-            }
-        } else {
-            mDataBinding.rv.addItemDecoration(new GridDividerItemDecoration(getContext(),
-                    ConvertUtils.dp2px(getContext(), 12f), ConvertUtils.dp2px(getContext(), 12f),
-                    true, true,
-                    ContextCompat.getColor(getContext(), R.color.main)));
-        }
-
-        mDataBinding.rv.setLayoutManager(manager);
-        mDataBinding.rv.setAdapter(adapter);
     }
 
 
-    private List<SchoolBean> genData() {
-        ArrayList<SchoolBean> list = new ArrayList<>();
-        for (int i = 0; i < 100; i++) {
-            String name = "学校 " + i;
-            SchoolBean school = new SchoolBean(name);
-            list.add(school);
-        }
-        return list;
-    }
+
 }

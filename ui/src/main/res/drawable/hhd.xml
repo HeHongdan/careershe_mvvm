@@ -1,126 +1,28 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <layer-list xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
-    <!--    <item-->
-    <!--        tools:height="15dp">-->
-    <!--        <shape android:shape="rectangle">-->
-    <!--            <stroke-->
-    <!--                android:width="1dp"-->
-    <!--                android:color="#fffc9131" />-->
-    <!--            <corners android:radius="8dp" />-->
-    <!--        </shape>-->
-    <!--    </item>-->
-
-
-    <!--    <item>-->
-    <!--        <rotate-->
-    <!--            android:fromDegrees="90"-->
-    <!--            android:toDegrees="90">-->
-    <!--            <shape android:shape="line">-->
-    <!--                <stroke-->
-    <!--                    android:width="1dp"-->
-    <!--                    android:color="#ebebeb"-->
-    <!--                    android:dashWidth="2dp"-->
-    <!--                    android:dashGap="1dp" />-->
-    <!--                <size-->
-    <!--                    android:width="200dp"-->
-    <!--                    android:height="3dp">-->
-    <!--                </size>-->
-    <!--            </shape>-->
-    <!--        </rotate>-->
-    <!--    </item>-->
-
-
-    <!--
-    <size
-        android:width="3dp"
-        android:height="30dp">
-    </size>
-    -->
-
-
-    <!--    <item-->
-    <!--        android:left="12dp"-->
-    <!--        >-->
-    <!--        <rotate-->
-    <!--            android:fromDegrees="90"-->
-    <!--            android:toDegrees="90"-->
-    <!--            >-->
-    <!--            <shape-->
-    <!--                android:shape="line"-->
-    <!--                >-->
-    <!--                <stroke-->
-    <!--                    android:width="2dp"-->
-    <!--                    android:height="30dp"-->
-    <!--                    android:color="#ff0"-->
-    <!--                    >-->
-    <!--                </stroke>-->
-    <!--            </shape>-->
-    <!--        </rotate>-->
-    <!--    </item>-->
-
 
     <!--背景-->
     <item
-        android:width="20dp"
-        android:height="10dp">
+        android:width="351dp"
+        android:height="44dp">
         <shape android:shape="rectangle">
-            <solid android:color="#fff2f2f2" />
+            <solid android:color="#8880" />
             <corners
                 android:bottomLeftRadius="0dp"
                 android:bottomRightRadius="0dp"
-                android:topLeftRadius="2dp"
-                android:topRightRadius="2dp" />
+                android:topLeftRadius="0dp"
+                android:topRightRadius="0dp" />
         </shape>
     </item>
+
+
     <!--线-->
     <item
-        android:width="1dp"
-        android:height="7dp"
-        android:left="0dp"
-        android:top="2dp">
-        <rotate
-            android:fromDegrees="0.0"
-            android:pivotX="0%"
-            android:pivotY="0%"
-            android:toDegrees="0.0">
-            <shape>
-                <gradient
-                    android:angle="270"
-                    android:endColor="#3333"
-                    android:startColor="#3333"
-                    android:type="linear"
-                    android:useLevel="false" />
-            </shape>
-        </rotate>
-    </item>
-
-    <item
-        android:width="1dp"
-        android:height="8dp"
-        android:left="19dp"
-        android:top="1dp">
-        <rotate
-            android:fromDegrees="0.0"
-            android:pivotX="0%"
-            android:pivotY="0%"
-            android:toDegrees="0.0">
-            <shape>
-                <gradient
-                    android:angle="270"
-                    android:endColor="#3333"
-                    android:startColor="#3333"
-                    android:type="linear"
-                    android:useLevel="false" />
-            </shape>
-        </rotate>
-    </item>
-
-    <item
-        android:width="20dp"
+        android:width="349dp"
         android:height="1dp"
-        android:left="0dp"
-        android:top="9dp">
+        android:left="1dp"
+        android:top="0dp">
         <rotate
             android:fromDegrees="0.0"
             android:pivotX="0%"
@@ -129,13 +31,155 @@
             <shape>
                 <gradient
                     android:angle="270"
-                    android:endColor="#3333"
-                    android:startColor="#3333"
+                    android:endColor="#990000"
+                    android:startColor="#990000"
                     android:type="linear"
                     android:useLevel="false" />
             </shape>
         </rotate>
     </item>
 
+    <item
+        android:width="1dp"
+        android:height="44dp"
+        android:left="0dp"
+        android:top="0dp">
+        <rotate
+            android:fromDegrees="0.0"
+            android:pivotX="0%"
+            android:pivotY="0%"
+            android:toDegrees="0.0">
+            <shape>
+                <gradient
+                    android:angle="270"
+                    android:endColor="#990000"
+                    android:startColor="#990000"
+                    android:type="linear"
+                    android:useLevel="false" />
+            </shape>
+        </rotate>
+    </item>
+
+    <item
+        android:width="1dp"
+        android:height="44dp"
+        android:left="350dp"
+        android:top="0dp">
+        <rotate
+            android:fromDegrees="0.0"
+            android:pivotX="0%"
+            android:pivotY="0%"
+            android:toDegrees="0.0">
+            <shape>
+                <gradient
+                    android:angle="270"
+                    android:endColor="#990000"
+                    android:startColor="#990000"
+                    android:type="linear"
+                    android:useLevel="false" />
+            </shape>
+        </rotate>
+    </item>
 
 </layer-list>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!--    <?xml version="1.0" encoding="UTF-8"?>-->
+<!--<layer-list xmlns:android="http://schemas.android.com/apk/res/android"-->
+<!--xmlns:tools="http://schemas.android.com/tools">-->
+
+<!--&lt;!&ndash;背景&ndash;&gt;-->
+<!--<item-->
+<!--    android:width="20dp"-->
+<!--    android:height="10dp">-->
+<!--    <shape android:shape="rectangle">-->
+<!--        <solid android:color="#fff2f2f2" />-->
+<!--        <corners-->
+<!--            android:bottomLeftRadius="0dp"-->
+<!--            android:bottomRightRadius="0dp"-->
+<!--            android:topLeftRadius="2dp"-->
+<!--            android:topRightRadius="2dp" />-->
+<!--    </shape>-->
+<!--</item>-->
+
+
+
+<!--<item-->
+<!--    android:left="0dp"-->
+<!--    android:right="0dp"-->
+<!--    android:top="8dp"-->
+<!--    android:bottom="0dp"-->
+<!--    >-->
+<!--    <rotate-->
+<!--        android:fromDegrees="0">-->
+
+<!--        <shape android:shape="line"-->
+<!--            android:useLevel="false">-->
+<!--            &lt;!&ndash; 实际显示的线 &ndash;&gt;-->
+<!--            <stroke-->
+<!--                android:width="1dp"-->
+<!--                android:color="#2F90BD"-->
+<!--                />-->
+<!--            &lt;!&ndash; 形状的高度 &ndash;&gt;-->
+<!--            &lt;!&ndash;                <size android:width="1dp" />&ndash;&gt;-->
+<!--        </shape>-->
+<!--    </rotate>-->
+<!--</item>-->
+
+
+<!--<item-->
+<!--    android:left="0dp"-->
+<!--    android:right="18dp"-->
+<!--    android:top="0dp"-->
+<!--    android:bottom="0dp"-->
+<!--    >-->
+<!--    <rotate-->
+<!--        android:fromDegrees="270">-->
+<!--        <shape android:shape="line"-->
+<!--            android:useLevel="false">-->
+<!--            &lt;!&ndash; 实际显示的线 &ndash;&gt;-->
+<!--            <stroke-->
+<!--                android:width="1dp"-->
+<!--                android:color="#2F90BD"-->
+<!--                />-->
+<!--            &lt;!&ndash; 形状的高度 &ndash;&gt;-->
+<!--            &lt;!&ndash;                <size android:width="1dp" />&ndash;&gt;-->
+<!--        </shape>-->
+<!--    </rotate>-->
+<!--</item>-->
+
+<!--<item-->
+<!--    android:left="18dp"-->
+<!--    android:right="0dp"-->
+<!--    android:top="0dp"-->
+<!--    android:bottom="0dp"-->
+<!--    >-->
+<!--    <rotate-->
+<!--        android:fromDegrees="45">-->
+<!--        <shape android:shape="line"-->
+<!--            android:useLevel="false">-->
+<!--            &lt;!&ndash; 实际显示的线 &ndash;&gt;-->
+<!--            <stroke-->
+<!--                android:width="1dp"-->
+<!--                android:color="#2F90BD"-->
+<!--                />-->
+<!--            &lt;!&ndash; 形状的高度 &ndash;&gt;-->
+<!--            &lt;!&ndash;                <size android:width="1dp" />&ndash;&gt;-->
+<!--        </shape>-->
+<!--    </rotate>-->
+<!--</item>-->
+
+
+<!--</layer-list>-->

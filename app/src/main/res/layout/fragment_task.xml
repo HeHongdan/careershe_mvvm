@@ -6,6 +6,7 @@
     tools:context=".model.main.qna.QnaFragment">
 
     <data>
+
         <variable
             name="viewModel"
             type="com.careershe.careershe.model.main.task.TaskViewModel" />
@@ -16,8 +17,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@color/background"
-        android:orientation="vertical"
-        >
+        android:orientation="vertical">
 
         <com.careershe.careershe.widget.actionbar.ActionBar
             android:id="@+id/ab"
@@ -25,33 +25,61 @@
             android:layout_height="wrap_content"
 
             app:ab_backgroundLayerImageRes="@drawable/widget_bg_actionbar_white"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
             app:leftIconClickToFinish="true"
+
             app:leftIconRes="@drawable/ic_back"
             app:rightIconRes="@drawable/ic_unstar"
             app:titleText="任务"
 
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
+            tools:background="#3333"
+            tools:layout_height="@dimen/actionbar_icon_size_def" />
 
-            tools:layout_height="@dimen/actionbar_icon_size_def"
-            tools:background="#3333" />
-
-
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/rv"
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="0dp"
+            android:layout_marginStart="5dp"
+            android:orientation="vertical"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/ab"
+            app:layout_constraintTop_toBottomOf="@+id/ab">
 
-            app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
-            tools:orientation="horizontal"
-            tools:listitem="@layout/item_rv_school"
-            />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="44dp"
+                android:layout_marginTop="@dimen/dp_10"
+                android:background="@drawable/hhd_" />
 
-    </androidx.constraintlayout.widget.ConstraintLayout >
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="44dp"
+                android:background="@drawable/hhd" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="44dp"
+                android:background="@drawable/hhd" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="44dp"
+                android:background="@drawable/hhd" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="44dp"
+                android:background="@drawable/hhd" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="44dp"
+                android:background="@drawable/hhd__" />
+
+        </LinearLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 </layout>
