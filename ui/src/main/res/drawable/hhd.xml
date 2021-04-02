@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+    <!--    <item-->
+    <!--        tools:height="15dp">-->
+    <!--        <shape android:shape="rectangle">-->
+    <!--            <stroke-->
+    <!--                android:width="1dp"-->
+    <!--                android:color="#fffc9131" />-->
+    <!--            <corners android:radius="8dp" />-->
+    <!--        </shape>-->
+    <!--    </item>-->
+
+
+    <!--    <item>-->
+    <!--        <rotate-->
+    <!--            android:fromDegrees="90"-->
+    <!--            android:toDegrees="90">-->
+    <!--            <shape android:shape="line">-->
+    <!--                <stroke-->
+    <!--                    android:width="1dp"-->
+    <!--                    android:color="#ebebeb"-->
+    <!--                    android:dashWidth="2dp"-->
+    <!--                    android:dashGap="1dp" />-->
+    <!--                <size-->
+    <!--                    android:width="200dp"-->
+    <!--                    android:height="3dp">-->
+    <!--                </size>-->
+    <!--            </shape>-->
+    <!--        </rotate>-->
+    <!--    </item>-->
+
+
+    <!--
+    <size
+        android:width="3dp"
+        android:height="30dp">
+    </size>
+    -->
+
+
+    <!--    <item-->
+    <!--        android:left="12dp"-->
+    <!--        >-->
+    <!--        <rotate-->
+    <!--            android:fromDegrees="90"-->
+    <!--            android:toDegrees="90"-->
+    <!--            >-->
+    <!--            <shape-->
+    <!--                android:shape="line"-->
+    <!--                >-->
+    <!--                <stroke-->
+    <!--                    android:width="2dp"-->
+    <!--                    android:height="30dp"-->
+    <!--                    android:color="#ff0"-->
+    <!--                    >-->
+    <!--                </stroke>-->
+    <!--            </shape>-->
+    <!--        </rotate>-->
+    <!--    </item>-->
+
+
+    <!--背景-->
+    <item
+        android:width="20dp"
+        android:height="10dp">
+        <shape android:shape="rectangle">
+            <solid android:color="#fff2f2f2" />
+            <corners
+                android:bottomLeftRadius="0dp"
+                android:bottomRightRadius="0dp"
+                android:topLeftRadius="2dp"
+                android:topRightRadius="2dp" />
+        </shape>
+    </item>
+    <!--线-->
+    <item
+        android:width="1dp"
+        android:height="7dp"
+        android:left="0dp"
+        android:top="2dp">
+        <rotate
+            android:fromDegrees="0.0"
+            android:pivotX="0%"
+            android:pivotY="0%"
+            android:toDegrees="0.0">
+            <shape>
+                <gradient
+                    android:angle="270"
+                    android:endColor="#3333"
+                    android:startColor="#3333"
+                    android:type="linear"
+                    android:useLevel="false" />
+            </shape>
+        </rotate>
+    </item>
+
+    <item
+        android:width="1dp"
+        android:height="8dp"
+        android:left="19dp"
+        android:top="1dp">
+        <rotate
+            android:fromDegrees="0.0"
+            android:pivotX="0%"
+            android:pivotY="0%"
+            android:toDegrees="0.0">
+            <shape>
+                <gradient
+                    android:angle="270"
+                    android:endColor="#3333"
+                    android:startColor="#3333"
+                    android:type="linear"
+                    android:useLevel="false" />
+            </shape>
+        </rotate>
+    </item>
+
+    <item
+        android:width="20dp"
+        android:height="1dp"
+        android:left="0dp"
+        android:top="9dp">
+        <rotate
+            android:fromDegrees="0.0"
+            android:pivotX="0%"
+            android:pivotY="0%"
+            android:toDegrees="0.0">
+            <shape>
+                <gradient
+                    android:angle="270"
+                    android:endColor="#3333"
+                    android:startColor="#3333"
+                    android:type="linear"
+                    android:useLevel="false" />
+            </shape>
+        </rotate>
+    </item>
+
+
+</layer-list>
