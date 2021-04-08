@@ -32,6 +32,7 @@ import com.next.easynavigation.view.CustomViewPager;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 
 /**
  * 类描述：。
@@ -78,6 +79,8 @@ public class MainActivity extends BaseMvvmActivity<ActivityMainBinding, MainView
 
     }
 
+    UpdateConfiguration configuration;
+    UpdateDialog defaultDialog;
     NumberProgressBar progressBar;
     Button btn_update;
     /** 升级的下载管理器。 */
@@ -89,11 +92,9 @@ public class MainActivity extends BaseMvvmActivity<ActivityMainBinding, MainView
      * 网络请求示例。
      */
     private void startUpdate() {
-        /*
-         * 整个库允许配置的内容
-         * 非必选
-         */
-        UpdateConfiguration configuration = new UpdateConfiguration()
+        boolean isForcedUpgrade = new Random().nextBoolean();
+
+        configuration = new UpdateConfiguration()
                 //输出错误日志
                 .setEnableLog(true)
                 //下载完成自动跳动安装页面
@@ -101,13 +102,13 @@ public class MainActivity extends BaseMvvmActivity<ActivityMainBinding, MainView
                 //设置按钮的文字颜色
                 .setDialogButtonTextColor(Color.WHITE)
                 //设置是否显示通知栏进度
-                .setShowNotification(false)
+                .setShowNotification(true)
                 //设置是否提示后台下载toast
                 .setShowBgdToast(false)
                 //设置是否上报数据
                 .setUsePlatform(true)
                 //设置强制更新
-                .setForcedUpgrade(false)
+                .setForcedUpgrade(isForcedUpgrade)
                 //设置对话框按钮的点击监听
                 .setButtonClickListener(new OnButtonClickListener() {
                     @Override
@@ -127,13 +128,26 @@ public class MainActivity extends BaseMvvmActivity<ActivityMainBinding, MainView
                     public void downloading(int max, int progress) {
                         int curr = (int) (progress / (double) max * 100.0);
                         LogUtils.d("下载的进度= " + curr);
-                        if (progressBar != null) {
-                            if (btn_update != null) {
+                        if (defaultDialog != null && defaultDialog.isShowing() && btn_update != null && progressBar != null) {
+                            if (progress < max) {
                                 btn_update.setVisibility(View.GONE);
+                                progressBar.setVisibility(View.VISIBLE);
+                                progressBar.setMax(100);
+                                progressBar.setProgress(curr);
+                            } else {
+//                                if (!configuration.isForcedUpgrade()) {
+//                                    defaultDialog.dismiss();
+//                                }
+                                progressBar.setVisibility(View.GONE);
+                                btn_update.setVisibility(View.VISIBLE);
+//                                btn_update.setText("安装App");
+//                                btn_update.setOnClickListener(new View.OnClickListener() {
+//                                    @Override
+//                                    public void onClick(View v) {
+//                                        defaultDialog.installApk();
+//                                    }
+//                                });
                             }
-                            progressBar.setVisibility(View.VISIBLE);
-                            progressBar.setMax(100);
-                            progressBar.setProgress(curr);
                         }
                     }
                 })
@@ -160,7 +174,7 @@ public class MainActivity extends BaseMvvmActivity<ActivityMainBinding, MainView
 //                .setApkMD5("DC501F04BBAA458C9DC33008EFED5E7F")
                 .download();
 
-        UpdateDialog defaultDialog = manager.getDefaultDialog();
+        defaultDialog = manager.getDefaultDialog();
         if (defaultDialog != null){
             View view = defaultDialog.getView();
             progressBar = view.findViewById(R.id.np_bar);

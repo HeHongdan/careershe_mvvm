@@ -165,12 +165,18 @@ public class UpdateDialog extends Dialog implements View.OnClickListener, OnDown
                 installApk();
                 return;
             }
-            if (forcedUpgrade) {
+            if (false) {
+                if (forcedUpgrade) {
+                    update.setEnabled(false);
+                    update.setText(R.string.background_downloading);
+                } else {
+                    dismiss();
+                }
+            } else {
                 update.setEnabled(false);
                 update.setText(R.string.background_downloading);
-            } else {
-                dismiss();
             }
+
             //回调点击事件
             if (buttonClickListener != null) {
                 buttonClickListener.onButtonClick(OnButtonClickListener.UPDATE);
@@ -182,7 +188,7 @@ public class UpdateDialog extends Dialog implements View.OnClickListener, OnDown
     /**
      * 强制更新，点击进行安装
      */
-    private void installApk() {
+    public void installApk() {
         ApkUtil.installApk(context, Constant.AUTHORITIES, apk);
     }
 
@@ -204,7 +210,13 @@ public class UpdateDialog extends Dialog implements View.OnClickListener, OnDown
     @Override
     public void done(File apk) {
         this.apk = apk;
-        if (forcedUpgrade) {
+        if (false) {
+            if (forcedUpgrade) {
+                update.setTag(install);
+                update.setEnabled(true);
+                update.setText(R.string.click_hint);
+            }
+        } else {
             update.setTag(install);
             update.setEnabled(true);
             update.setText(R.string.click_hint);
