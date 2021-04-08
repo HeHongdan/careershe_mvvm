@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".dev2.module_mvc.main.QnaFragment">
+
+    <item tools:width="267dp" tools:height="44dp">
+        <shape android:shape="rectangle">
+            <solid android:color="#fffc9131" />
+            <corners android:radius="22dp" />
+        </shape>
+    </item>
+
+
+</layer-list>

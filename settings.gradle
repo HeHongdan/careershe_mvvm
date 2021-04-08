@@ -1,3 +1,4 @@
+include ':appupdateX'
 include ':statusbarcompat'
 include ':actionbarex'
 include ':common'

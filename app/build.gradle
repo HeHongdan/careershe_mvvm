@@ -262,4 +262,5 @@ dependencies {
     implementation project(path: ':basics')
     implementation project(':ui')
     implementation project(':actionbarex')
+    implementation project(':appupdateX')
 }

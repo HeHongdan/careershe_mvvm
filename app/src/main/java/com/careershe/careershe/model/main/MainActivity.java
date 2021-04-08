@@ -1,13 +1,23 @@
 package com.careershe.careershe.model.main;
 
+import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 
+import com.azhon.appupdate.config.UpdateConfiguration;
+import com.azhon.appupdate.dialog.NumberProgressBar;
+import com.azhon.appupdate.dialog.UpdateDialog;
+import com.azhon.appupdate.listener.OnButtonClickListener;
+import com.azhon.appupdate.listener.OnDownloadListenerAdapter;
+import com.azhon.appupdate.manager.DownloadManager;
+import com.blankj.utilcode.util.AppUtils;
 import com.blankj.utilcode.util.LogUtils;
 import com.careershe.basics.base.BaseMvvmActivity;
 import com.careershe.careershe.R;
@@ -58,7 +68,122 @@ public class MainActivity extends BaseMvvmActivity<ActivityMainBinding, MainView
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        startUpdate();
     }
+
+    @Override
+    public void onWindowFocusChanged(boolean hasFocus) {
+        super.onWindowFocusChanged(hasFocus);
+
+    }
+
+    NumberProgressBar progressBar;
+    Button btn_update;
+    /** 升级的下载管理器。 */
+    private DownloadManager manager;
+    /** 升级apk地址。 */
+    private String url = "http://s.duapps.com/apks/own/ESFileExplorer-cn.apk";
+
+    /**
+     * 网络请求示例。
+     */
+    private void startUpdate() {
+        /*
+         * 整个库允许配置的内容
+         * 非必选
+         */
+        UpdateConfiguration configuration = new UpdateConfiguration()
+                //输出错误日志
+                .setEnableLog(true)
+                //下载完成自动跳动安装页面
+                .setJumpInstallPage(true)
+                //设置按钮的文字颜色
+                .setDialogButtonTextColor(Color.WHITE)
+                //设置是否显示通知栏进度
+                .setShowNotification(false)
+                //设置是否提示后台下载toast
+                .setShowBgdToast(false)
+                //设置是否上报数据
+                .setUsePlatform(true)
+                //设置强制更新
+                .setForcedUpgrade(false)
+                //设置对话框按钮的点击监听
+                .setButtonClickListener(new OnButtonClickListener() {
+                    @Override
+                    public void onButtonClick(int id) {
+                        LogUtils.d(String.valueOf(id));
+                    }
+                })
+                //设置下载过程的监听
+                .setOnDownloadListener(new OnDownloadListenerAdapter() {
+                    /**
+                     * 下载中
+                     *
+                     * @param max      总进度
+                     * @param progress 当前进度
+                     */
+                    @Override
+                    public void downloading(int max, int progress) {
+                        int curr = (int) (progress / (double) max * 100.0);
+                        LogUtils.d("下载的进度= " + curr);
+                        if (progressBar != null) {
+                            if (btn_update != null) {
+                                btn_update.setVisibility(View.GONE);
+                            }
+                            progressBar.setVisibility(View.VISIBLE);
+                            progressBar.setMax(100);
+                            progressBar.setProgress(curr);
+                        }
+                    }
+                })
+                //设置自定义的下载
+                //.setHttpManager()
+                //设置对话框背景图片 (图片规范参照demo中的示例图)
+                //.setDialogImage(R.drawable.ic_dialog)
+                //设置按钮的颜色
+                //.setDialogButtonColor(Color.parseColor("#E743DA"))
+                //设置对话框强制更新时进度条和文字的颜色
+                //.setDialogProgressBarColor(Color.parseColor("#E743DA"))
+                ;
+
+        manager = DownloadManager.getInstance(this);
+        manager.setApkName("careershe.apk")
+                .setApkUrl(url)
+                .setSmallIcon(R.mipmap.ic_launcher)
+                .setShowNewerToast(false)
+                .setConfiguration(configuration)
+                .setApkVersionCode(AppUtils.getAppVersionCode() + 1)
+                .setApkVersionName("0.1")
+                .setApkSize("43.21")
+                .setApkDescription("1.支持M N O P Q\\n2.支持自定义下载过程\\n3.支持动态权限\\n4.支持通知栏进度条")
+//                .setApkMD5("DC501F04BBAA458C9DC33008EFED5E7F")
+                .download();
+
+        UpdateDialog defaultDialog = manager.getDefaultDialog();
+        if (defaultDialog != null){
+            View view = defaultDialog.getView();
+            progressBar = view.findViewById(R.id.np_bar);
+            progressBar.setVisibility(View.GONE);
+            btn_update = view.findViewById(R.id.btn_update);
+            TextView tv_size = view.findViewById(R.id.tv_size);
+            tv_size.setVisibility(View.GONE);
+        }
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
     @Override
